@@ -1,0 +1,1 @@
+gcc -W push_swap.c -ILibft/ -LLibft/ -lft
