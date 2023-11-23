@@ -6,12 +6,12 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 16:58:57 by flopez-r          #+#    #+#              #
-#    Updated: 2023/11/23 17:35:52 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/11/23 20:01:38 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-SRC = push_swap_utils.c push_swap.c
+SRC = push_swap_utils.c push_swap.c swap_operations.c
 OBJ = $(SRC:.c=.o)
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
