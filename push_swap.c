@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/23 17:36:39 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:31:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 void	create_list(char **list_values, t_list **new_list)
 {
 	int i;
-	int		content;
-	t_list	*new_node;
+	int		*content;
 
 	i = 1;
-	new_list = 0;
-	while (list_values[i])
+	content = (int *)malloc(sizeof(int));
+	*content = ft_atoi(list_values[i]);
+	*new_list = ft_lstnew(content);
+	while (list_values[++i])
 	{
-		content = ft_atoi(list_values[i]);
-		new_node = ft_lstnew(&content);
-		ft_lstadd_back(new_list, new_node);
-		i++;
+		content = (int *)malloc(sizeof(int));
+		*content = ft_atoi(list_values[i]);
+		ft_lstadd_back(new_list, ft_lstnew(content));
 	}
 }
 
@@ -33,7 +33,7 @@ void	print_lista(t_list *header)
 {
 	while (header)
 	{
-		printf("%d", (int)header->content);
+		printf("%i\n", *(int *)header->content);
 		header = header->next;
 	}
 }
