@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 13:08:07 by flopez-r          #+#    #+#              #
-#    Updated: 2023/10/05 13:08:09 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/11/23 17:33:37 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,38 +19,35 @@ SRC =	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strdup.c ft_striteri.c ft_strlcat.c ft_strlcpy.c \
 		ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strnstr.c \
 		ft_strmapi.c ft_strtrim.c\
-		ft_strrchr.c ft_tolower.c ft_toupper.c ft_strjoin.c ft_substr.c
-BNS_SRCS =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+		ft_strrchr.c ft_tolower.c ft_toupper.c ft_strjoin.c ft_substr.c \
+		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
 		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 # BNS_SRCS =	ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
 # 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
-BNS_OBJS =	$(BNS_SRCS:.c=.o)
+# BNS_OBJS =	$(BNS_SRCS:.c=.o)
 
-NAME = libft.a
+NAME = ../libft.a
 
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 # $(CC) $(FLAGS) $(SRC) -o $(NAME)
-	ar -rcs $(NAME) $(OBJ)
+	$(AR) -rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-bonus: $(OBJ) $(BNS_OBJS)
-	ar -rcs $(NAME) $(OBJ) $(BNS_OBJS)
-	ranlib $(NAME)
-
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
-
+# bonus: $(OBJ) $(BNS_OBJS)
+# 	ar -rcs $(NAME) $(OBJ) $(BNS_OBJS)
+# 	ranlib $(NAME)
 clean: 
-	rm -f $(OBJ) $(BNS_OBJS)
+	rm -f $(OBJ)
+# rm -f $(OBJ) $(BNS_OBJS)
 
-fclean: clean
+fclean:
 	rm -f $(NAME)
 
 re: fclean all
