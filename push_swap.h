@@ -18,4 +18,9 @@ void	rotate_a(t_list **stack_a);
 void	rotate_b(t_list **stack_b);
 void	rotate_rr(t_list **stack_a, t_list **stack_b);
 
+//Reverse rotate (rra, rrb, rrr)
+void	reverse_rotate_a(t_list **stack_a);
+void	reverse_rotate_b(t_list **stack_b);
+void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
+
 #endif

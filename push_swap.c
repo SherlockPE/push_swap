@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/24 13:20:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:26:08 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_lista(t_list *header)
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	// t_list	*stack_b;
 
 	(void)argc;
 
@@ -52,7 +52,21 @@ int	main(int argc, char **argv)
 	printf("Estado actual del stack_a\n");
 	print_lista(stack_a);
 
-	//rotate operations
+	//Reverse rotate opeations (rra, rrb, rrr)
+		// reverse_rotate_a(&stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
+
+		// reverse_rotate_b(&stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
+
+		// reverse_rotate_rr(&stack_a, &stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
+		
+	
+	//Rotate operations (ra, rb, rr);
 		// rotate_a(&stack_a);
 		// printf("Estado actual del stack_a\n");
 		// print_lista(stack_a);
@@ -65,7 +79,7 @@ int	main(int argc, char **argv)
 		// printf("Estado actual del stack_a\n");
 		// print_lista(stack_a);
 
-	//Push operations
+	//Push operations (pa, pb)
 		// //pb pb pb
 		// push_b(&stack_a, &stack_b);
 		// push_b(&stack_a, &stack_b);
