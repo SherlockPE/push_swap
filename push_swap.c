@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/23 20:29:49 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:14:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	create_list(char **list_values, t_list **new_list)
 {
-	int i;
-	int		*content;
+	int	i;
+	int	*content;
 
 	i = 1;
 	content = (int *)malloc(sizeof(int));
@@ -41,17 +41,21 @@ void	print_lista(t_list *header)
 	printf("---------------------------------\n");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
+	t_list	*stack_a;
+
 	(void)argc;
-	t_list	*new_list;
-	create_list(argv, &new_list);
-	print_lista(new_list);
+	create_list(argv, &stack_a);
+	print_lista(stack_a);
+
 	
-	swap_a(&new_list);
-	print_lista(new_list);
-	
-	swap_b(&new_list);
-	print_lista(new_list);
-	return 0;
+
+	//Swap operations (sa, sb, ss)
+	// swap_a(&stack_a);
+	// print_lista(stack_a);
+	// swap_b(&stack_a);
+	// print_lista(stack_a);
+	// swap_ss(&stack_a, &stack_a);
+	return (0);
 }

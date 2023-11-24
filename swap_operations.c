@@ -6,11 +6,12 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:34:30 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/23 20:32:26 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/24 11:06:31 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 
 void	swap_a(t_list **stack_a)
@@ -62,9 +63,14 @@ void	swap_b(t_list **stack_b)
 
 //Reasignar cabecera
 	*stack_b = b;
-	printf("sa\n");
+	printf("sb\n");
 }
 
+void	swap_ss(t_list **stack_a, t_list **stack_b)
+{
+	swap_a(stack_a);
+	swap_b(stack_b);
+}
 
 
 // 1 --> *stack_a

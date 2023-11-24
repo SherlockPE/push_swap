@@ -4,14 +4,9 @@
 # include "libft/libft.h"
 # include <stdio.h>
 
-
+//Swap
 void	swap_a(t_list **stack_a);
 void	swap_b(t_list **stack_b);
-/* typedef struct stack
-{
-	void			*content;
-	struct s_list	*next;
-}					stack;
- */
+void	swap_ss(t_list **stack_a, t_list **stack_b);
 
 #endif
