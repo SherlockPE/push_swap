@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/24 12:07:50 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/24 13:20:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,19 @@ int	main(int argc, char **argv)
 	create_list(argv, &stack_a);
 	printf("Estado actual del stack_a\n");
 	print_lista(stack_a);
+
+	//rotate operations
+		// rotate_a(&stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
+
+		// rotate_a(&stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
+		
+		// rotate_a(&stack_a);
+		// printf("Estado actual del stack_a\n");
+		// print_lista(stack_a);
 
 	//Push operations
 		// //pb pb pb
