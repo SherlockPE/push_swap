@@ -6,11 +6,34 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/24 14:26:08 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/27 16:27:35 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_errors(int argc, char **argv)
+{
+	int	i;
+	int	j;
+
+	if (argc <= 1)
+		return (0);
+	i = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[i][j])
+		{
+			if (ft_isalpha(argv[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	//falta el 2.147.483.647 (número mayor a int)
+	return (1);
+}
 
 void	create_list(char **list_values, t_list **new_list)
 {
@@ -46,11 +69,17 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	// t_list	*stack_b;
 
-	(void)argc;
-
-	create_list(argv, &stack_a);
-	printf("Estado actual del stack_a\n");
-	print_lista(stack_a);
+	if (!check_errors(argc, argv))
+	{
+		printf("Error\n");
+		return (2);
+	}
+	else
+	{
+		create_list(argv, &stack_a);
+		printf("Estado actual del stack_a\n");
+		print_lista(stack_a);		
+	}
 
 	//Reverse rotate opeations (rra, rrb, rrr)
 		// reverse_rotate_a(&stack_a);
