@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 14:50:17 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:52:03 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void	rotate_rr(t_list **stack_a, t_list **stack_b);
 void	reverse_rotate_a(t_list **stack_a);
 void	reverse_rotate_b(t_list **stack_b);
 void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
+
+// Plugin
+void	enter_parameter(t_list **stack_a, t_list **stack_b);
 
 #endif

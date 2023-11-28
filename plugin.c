@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   comprobation.c                                     :+:      :+:    :+:   */
+/*   plugin.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 15:06:57 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:25:10 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,10 @@
 // 	}
 // }
 
-int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int *contador)
+static int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int *contador)
 {
 	int	i;
 
-	(*contador)++;
 	i = 0;
 	if (!ft_strncmp(response, "sa", 2))
 		swap_a(stack_a);
@@ -55,6 +54,9 @@ int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int *contad
 		reverse_rotate_rr(stack_a, stack_b);
 	else if (!ft_strncmp(response, "q", 1))
 		return (0);
+	else
+		return (2);
+	(*contador)++;
 	return (1);
 }
 
@@ -62,19 +64,27 @@ int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int *contad
 	// 	"rra", "rrb", "rrr", "\0"};
 void	enter_parameter(t_list **stack_a, t_list **stack_b)
 {
-	// char	*answer;
-	// int		count_operations;
-	// while (1)
-	// {
-	printf("Ingresa un argumento:\n");
-	printf("sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n");
-		// scanf(&answer);
-		// if (!check_answer(answer, stack_a, stack_b, &count_operations))
-		// {
-		// 	printf("Cantidad de operaciones: %d\n", count_operations - 1);
-		// 	return ;
-		// }
-		
-	print_listas(*stack_a, *stack_b);
-	// }
+	char	answer[20];
+	int		count_operations;
+	int		result;
+
+	count_operations = 0;
+	while (1)
+	{
+		printf("Cantidad de operaciones: %d\n", count_operations);
+		printf("Nota: Puedes presionar (q) para salir\n");
+		printf("Ingresa un argumento: ");
+		//printf("sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n");
+		scanf("%s", answer);
+		system("clear");
+		result = check_answer(answer, stack_a, stack_b, &count_operations);
+		if (!result)
+		{
+			printf("Cantidad de operaciones: %d\n", count_operations - 1);
+			return ;
+		}
+		else if(result == 2)
+			printf("Ingresa un argumento válido!\n");
+		print_listas(*stack_a, *stack_b);
+	}
 }

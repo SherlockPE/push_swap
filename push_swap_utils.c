@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 15:35:00 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:46:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 void	print_listas(t_list *header_a, t_list *header_b)
 {
-	// int	iterations;
-	// int	size_a = ft_lstsize(header_a);
-	// int	size_b = ft_lstsize(header_b);
-	// iterations = 0;
-	// if (size_a > size_b)
-	// 	iterations = size_a;
-	// else
-	// 	iterations = size_b;
 	printf("---------------------------------\n");
 	printf("Stack a		|		Stack b\n");
 	while (header_a || header_b)

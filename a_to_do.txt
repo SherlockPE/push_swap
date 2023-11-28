@@ -3,6 +3,7 @@ Hecho
 -----------------------------------------------------------------------------------------
 Arreglar el error de mis funciones (imprimen todo x3 veces) <----------
 Comprobar que funcionan las funciones con la nueva actualización
+Plugin para usar en tiempo real el push_swap
 
 
 
@@ -12,7 +13,6 @@ Comprobar que funcionan las funciones con la nueva actualización
 -----------------------------------------------------------------------------------------
 Haciendo
 -----------------------------------------------------------------------------------------
-Plugin para usar en tiempo real el push_swap
 
 
 
