@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:09 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 11:48:06 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 12:08:56 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	rotate_action(t_list	**stack)
 
 void	rotate_a(t_list **stack_a)
 {
-	rotate_a(stack_a);
+	rotate_action(stack_a);
 	printf("ra\n");
 }
 

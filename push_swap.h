@@ -1,24 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
+/*   Updated: 2023/11/28 14:50:17 by flopez-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
 # include <stdio.h>
 
-//Swap (sa, sb, ss)
+// Push swap Utils
+int		check_errors(int argc, char **argv);
+void	create_list(char **list_values, t_list **new_list);
+void	print_listas(t_list *header_a, t_list *header_b);
+
+// Swap (sa, sb, ss)
 void	swap_a(t_list **stack_a);
 void	swap_b(t_list **stack_b);
 void	swap_ss(t_list **stack_a, t_list **stack_b);
 
-//Push (pa, pb, )
+// Push (pa, pb, )
 void	push_a(t_list **stack_a, t_list **stack_b);
 void	push_b(t_list **stack_a, t_list **stack_b);
 
-//Rotate (ra, rb, rr)
+// Rotate (ra, rb, rr)
 void	rotate_a(t_list **stack_a);
 void	rotate_b(t_list **stack_b);
 void	rotate_rr(t_list **stack_a, t_list **stack_b);
 
-//Reverse rotate (rra, rrb, rrr)
+// Reverse rotate (rra, rrb, rrr)
 void	reverse_rotate_a(t_list **stack_a);
 void	reverse_rotate_b(t_list **stack_b);
 void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);

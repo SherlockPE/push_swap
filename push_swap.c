@@ -6,80 +6,35 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/27 16:27:35 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 15:38:32 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_errors(int argc, char **argv)
-{
-	int	i;
-	int	j;
-
-	if (argc <= 1)
-		return (0);
-	i = 0;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (ft_isalpha(argv[i][j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	//falta el 2.147.483.647 (número mayor a int)
-	return (1);
-}
-
-void	create_list(char **list_values, t_list **new_list)
-{
-	int	i;
-	int	*content;
-
-	i = 1;
-	content = (int *)malloc(sizeof(int));
-	*content = ft_atoi(list_values[i]);
-	*new_list = ft_lstnew(content);
-	while (list_values[++i])
-	{
-		content = (int *)malloc(sizeof(int));
-		*content = ft_atoi(list_values[i]);
-		ft_lstadd_back(new_list, ft_lstnew(content));
-	}
-}
-
-void	print_lista(t_list *header)
-{
-	// printf("---------------------------------\n");
-	while (header)
-	{
-		printf("%i\n", *(int *)header->content);
-		header = header->next;
-	}
-	printf("---------------------------------\n");
-	printf("---------------------------------\n");
-}
-
 int	main(int argc, char **argv)
 {
+	(void)argc;
 	t_list	*stack_a;
-	// t_list	*stack_b;
+	t_list	*stack_b;
 
-	if (!check_errors(argc, argv))
-	{
-		printf("Error\n");
-		return (2);
-	}
-	else
-	{
-		create_list(argv, &stack_a);
-		printf("Estado actual del stack_a\n");
-		print_lista(stack_a);		
-	}
+	stack_b = NULL;
+	create_list(argv, &stack_a);
+	printf("Estado actual del stack_a\n");
+	print_listas(stack_a, stack_b);
+	// enter_parameter(&stack_a, &stack_b);
+	
+	// if (!check_errors(argc, argv))
+	// {
+	// 	printf("Error\n");
+	// 	return (2);
+	// }
+	// else
+	// {
+	// 	create_list(argv, &stack_a);
+	// 	printf("Estado actual del stack_a\n");
+	// 	print_lista(stack_a);	
+	// }
 
 	//Reverse rotate opeations (rra, rrb, rrr)
 		// reverse_rotate_a(&stack_a);
