@@ -6,26 +6,15 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 17:29:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 18:03:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-// void	imprimir(char **operations)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (operations[i])
-// 	{
-// 		printf("%s\n", operations[i]);
-// 		i++;
-// 	}
-// }
-
-static int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int *contador)
+static int	check_answer(char *response, t_list **stack_a, t_list **stack_b,
+		int *contador)
 {
 	int	i;
 
@@ -72,7 +61,7 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b)
 		printf("Cantidad de operaciones: %d\n", count_operations);
 		printf("Nota: Puedes presionar (q) para salir\n");
 		printf("Ingresa un argumento: ");
-		//printf("sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n");
+		// printf("sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n");
 		scanf("%s", answer);
 		system("clear");
 		result = check_answer(answer, stack_a, stack_b, &count_operations);
@@ -81,7 +70,7 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b)
 			printf("Cantidad de operaciones: %d\n", count_operations - 1);
 			return ;
 		}
-		else if(result == 2)
+		else if (result == 2)
 			printf("Ingresa un argumento válido!\n");
 		print_listas(*stack_a, *stack_b);
 	}
