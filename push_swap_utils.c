@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 15:46:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:54:11 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_errors(int argc, char **argv)
 
 	if (argc <= 1)
 		return (0);
-	i = 0;
+	i = 1;
 	while (argv[i])
 	{
 		j = 0;
