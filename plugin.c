@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 16:25:10 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:29:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ static int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int 
 		rotate_b(stack_b);
 	else if (!ft_strncmp(response, "rr", 2))
 		rotate_rr(stack_a, stack_b);
-	else if (!ft_strncmp(response, "rra", 2))
+	else if (!ft_strncmp(response, "rra", 3))
 		reverse_rotate_a(stack_a);
-	else if (!ft_strncmp(response, "rrb", 2))
+	else if (!ft_strncmp(response, "rrb", 3))
 		reverse_rotate_b(stack_b);
-	else if (!ft_strncmp(response, "rra", 2))
+	else if (!ft_strncmp(response, "rrr", 3))
 		reverse_rotate_rr(stack_a, stack_b);
 	else if (!ft_strncmp(response, "q", 1))
 		return (0);
@@ -60,8 +60,6 @@ static int	check_answer(char *response, t_list **stack_a, t_list **stack_b, int 
 	return (1);
 }
 
-	// char *operations[12] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr",
-	// 	"rra", "rrb", "rrr", "\0"};
 void	enter_parameter(t_list **stack_a, t_list **stack_b)
 {
 	char	answer[20];

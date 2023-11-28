@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 16:54:11 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:51:44 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	create_list(char **list_values, t_list **new_list)
 	int	i;
 	int	*content;
 
-	i = 1;
+	i = 1;	
 	content = (int *)malloc(sizeof(int));
 	*content = ft_atoi(list_values[i]);
 	*new_list = ft_lstnew(content);
@@ -69,10 +69,14 @@ int	check_errors(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
-			if (ft_isalpha(argv[i][j]))
+			if (argv[i][j] == '-' || argv[i][j] == '+')
+				j++;
+			if (!ft_isdigit(argv[i][j]))
 				return (0);
 			j++;
 		}
+		if (j > 11)
+			return (0);
 		i++;
 	}
 	return (1);
