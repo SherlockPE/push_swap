@@ -9,6 +9,7 @@ Arreglar errores del Plugin
 Proteger las funciones (desprotegerlas antes de entregar)
 Algoritmo de ordenamiento
     -->Está ordenada la lista? si sí, no debo hacer nada
+    -->Función para comprar si una lista ya está ordenada con orden ascendente o descendente
 
 
 
@@ -16,7 +17,6 @@ Algoritmo de ordenamiento
 Haciendo
 -----------------------------------------------------------------------------------------
 Algoritmo de ordenamiento
-    -->Función para comprar si una lista ya está ordenada con orden ascendente o descendente
 
 
 
