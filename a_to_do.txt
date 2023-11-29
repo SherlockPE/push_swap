@@ -7,6 +7,8 @@ Plugin para usar en tiempo real el push_swap
 Norminette
 Arreglar errores del Plugin
 Proteger las funciones (desprotegerlas antes de entregar)
+Algoritmo de ordenamiento
+    -->Está ordenada la lista? si sí, no debo hacer nada
 
 
 
@@ -15,6 +17,7 @@ Haciendo
 -----------------------------------------------------------------------------------------
 Algoritmo de ordenamiento
     -->Investigar chunks
+    -->Asignar posiciónes (menor a mayor)?
 
 
 
@@ -23,11 +26,10 @@ Algoritmo de ordenamiento
 -----------------------------------------------------------------------------------------
 Por hacer
 -----------------------------------------------------------------------------------------
-Algoritmo de ordenamiento
-    -->Asignar posiciónes (menor a mayor)
-
 Plugin (Mejorarlo)
     --> imprimir una lista de las operaciones que he hecho (sa, sb, ss, etc)
+Algoritmo de ordenamiento
+
 
 Gestión de errores
     -->Número máximo y mínimo de int

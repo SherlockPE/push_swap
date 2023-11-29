@@ -6,14 +6,14 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 16:58:57 by flopez-r          #+#    #+#              #
-#    Updated: 2023/11/28 15:44:38 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/11/29 18:50:47 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 SRC = push_swap_utils.c push_swap.c \
 		operations_swap.c operations_push.c operations_rotate.c \
-		operations_reverse_rotate.c push_swap_utils.c plugin.c
+		operations_reverse_rotate.c push_swap_utils.c plugin.c algorithm.c
 OBJ = $(SRC:.c=.o)
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror

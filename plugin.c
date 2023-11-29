@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 18:19:31 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:56:20 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int	check_answer(char *response, t_list **stack_a, t_list **stack_b,
 	{
 		printf("Pantalla limpiada\n");
 		system("clear");
-		return(*contador = 0, 1);
+		return(1);
 	}
 	else if (!ft_strncmp(response, "q", 1))
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 17:20:50 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:40:06 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 int		check_errors(int argc, char **argv);
 void	create_list(char **list_values, t_list **new_list);
 void	print_listas(t_list *header_a, t_list *header_b);
-int     error_content_size(t_list **stack);
+int		error_content_size(t_list **stack);
 
 // Swap (sa, sb, ss)
 void	swap_a(t_list **stack_a);
@@ -43,5 +43,8 @@ void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
 
 // Plugin
 void	enter_parameter(t_list **stack_a, t_list **stack_b);
+
+// Algoritmo
+void	sort_list(t_list **stack_a, t_list **stack_b);
 
 #endif
