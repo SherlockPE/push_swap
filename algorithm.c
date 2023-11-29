@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 21:11:36 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:57:37 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,24 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 		{
 			a = *stack_a;
 			b = (*stack_a)->next;
-			if (a->content < b->content)
+			//print_listas(a, b);
+			if (a->content > b->content) // a es menor que b?
+			{
 				push_b(stack_a, stack_b);
+				print_listas(*stack_a, *stack_b);
+			}
 			else
+			{
 				reverse_rotate_a(stack_a);//probar con swap stack a
+				print_listas(*stack_a, *stack_b);
+			}
 		}
 		size = ft_lstsize(*stack_b);
 		while (size--)
+		{
 			push_a(stack_a, stack_b);
+			print_listas(*stack_a, *stack_b);
+		}
 	}
 }
 
