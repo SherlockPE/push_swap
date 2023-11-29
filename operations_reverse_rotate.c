@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:21:50 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 18:00:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:14:11 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	reverse_action(t_list **stack)
 	z = ft_lstlast(*stack);
 	size = ft_lstsize(*stack);
 	ft_lstadd_front(stack, z);
-	printf("len de la lista: %d\n", size);
 	while (--size)
 		z = z->next;
 	z->next = NULL;
