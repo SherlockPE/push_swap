@@ -16,8 +16,7 @@ Algoritmo de ordenamiento
 Haciendo
 -----------------------------------------------------------------------------------------
 Algoritmo de ordenamiento
-    -->Investigar chunks
-    -->Asignar posiciónes (menor a mayor)?
+    -->Función para comprar si una lista ya está ordenada con orden ascendente o descendente
 
 
 
@@ -29,6 +28,8 @@ Por hacer
 Plugin (Mejorarlo)
     --> imprimir una lista de las operaciones que he hecho (sa, sb, ss, etc)
 Algoritmo de ordenamiento
+    -->Función de Asignar posiciónes con orden ascendente o descendente
+    -->Investigar chunks
 
 
 Gestión de errores
