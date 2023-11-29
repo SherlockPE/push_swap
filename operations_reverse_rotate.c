@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 13:21:50 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 17:14:11 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:24:00 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,24 @@ void	reverse_action(t_list **stack)
 
 void	reverse_rotate_a(t_list **stack_a)
 {
+	if (!error_content_size(stack_a))
+		return ;
 	reverse_action(stack_a);
 	printf("rra\n");
 }
 
 void	reverse_rotate_b(t_list **stack_b)
 {
+	if (!error_content_size(stack_b))
+		return ;
 	reverse_action(stack_b);
 	printf("rrb\n");
 }
 
 void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b)
 {
+	if (!error_content_size(stack_a) || !error_content_size(stack_b))
+		return ;
 	reverse_action(stack_a);
 	reverse_action(stack_b);
 	printf("rrr\n");

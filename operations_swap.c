@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:34:30 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 17:08:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:21:57 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	swap_action(t_list **stack)
 
 void	swap_a(t_list **stack_a)
 {
-	int	size;
-	
-	size = ft_lstsize(*stack_a);
-	if (size <= 1)
+	if (!error_content_size(stack_a))
 		return ;
 	swap_action(stack_a);
 	printf("sa\n");
@@ -39,10 +36,7 @@ void	swap_a(t_list **stack_a)
 
 void	swap_b(t_list **stack_b)
 {
-	int	size;
-	
-	size = ft_lstsize(*stack_b);
-	if (size <= 1)
+	if (!error_content_size(stack_b))
 		return ;
 	swap_action(stack_b);
 	printf("sb\n");

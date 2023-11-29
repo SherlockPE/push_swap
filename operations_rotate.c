@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:11:09 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/28 18:01:09 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:24:21 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ void	rotate_action(t_list **stack)
 
 void	rotate_a(t_list **stack_a)
 {
+	if (!error_content_size(stack_a))
+		return ;
 	rotate_action(stack_a);
 	printf("ra\n");
 }
 
 void	rotate_b(t_list **stack_b)
 {
+	if (!error_content_size(stack_b))
+		return ;
 	rotate_action(stack_b);
 	printf("rb\n");
 }
