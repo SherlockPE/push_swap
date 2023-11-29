@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 18:47:27 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/11/29 21:09:03 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 
 		print_listas(stack_a, stack_b);
 		sort_list(&stack_a, &stack_b);
+		print_listas(stack_a, stack_b);
 		//enter_parameter(&stack_a, &stack_b);
 	}
 	return (0);
