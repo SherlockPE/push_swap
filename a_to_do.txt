@@ -27,6 +27,7 @@ Por hacer
 -----------------------------------------------------------------------------------------
 Plugin (Mejorarlo)
     --> imprimir una lista de las operaciones que he hecho (sa, sb, ss, etc)
+    --> Resetear la lista al orden original
 Algoritmo de ordenamiento
     -->Función de Asignar posiciónes con orden ascendente o descendente
     -->Investigar chunks
