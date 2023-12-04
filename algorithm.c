@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/04 16:33:59 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/04 17:52:50 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	sort_list_3_digits(t_list **stack)
 		a = *stack;
 		b = a->next;
 		printf("Contenido de a: %d\n", *(int *)a->content);
-		printf("Contenido de b: %d\n", *(int *)b->content);
-		if (a->content > b->content) //si a es mayor que b
+		printf("Contenido de b: %d\n\n", *(int *)b->content);
+		if (*(int *)a->content > *(int *)b->content) //si a es mayor que b
 			swap_a(stack);
 		else // si a es menor que b
 			reverse_rotate_a(stack);
@@ -33,20 +33,19 @@ void	sort_list_3_digits(t_list **stack)
 
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
-	// int	size;
-
 	(void)stack_b;
-	// size = ft_lstsize(*stack_a);
+	int	size;
 	
-	sort_list_3_digits(stack_a);
-	// while (!is_it_order_yet(*stack_a, 1))
-	// {
-
-	// 	if (size <= 3)
-	// 		sort_list_3_digits(stack_a, a, b);
-	// 	else
-	// 		break ;
-	// }
+	size = ft_lstsize(*stack_a);
+	while (!is_it_order_yet(*stack_a, 1))
+	{
+		if (size <= 3)
+			sort_list_3_digits(stack_a);
+		else
+		{
+			
+		}
+	}
 }
 
 
