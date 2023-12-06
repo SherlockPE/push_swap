@@ -6,13 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/11/29 21:05:25 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:20:05 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //Retorna 0 si está desordenada y 1 si está ordenada
+//Si order es 1 comprueba de forma ascendente si es cualquier otro número, lo hace de forma descendente
 int	is_it_order_yet(t_list *stack, int order)
 {
 	t_list	*tmp_next;

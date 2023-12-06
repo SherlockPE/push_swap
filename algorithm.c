@@ -6,66 +6,87 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/06 12:54:28 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/06 19:35:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **), void	rr(t_list **))
-{
-	t_list	*a;
-	t_list	*b;
-
-
-	while (!is_it_order_yet(*stack, order))
-	{
-		a = *stack;
-		b = a->next;
-		if (order == 1)
-		{
-			if (*(int *)a->content > *(int *)b->content) //Orden ascendente
-				swap(stack);
-			else
-				rr(stack);
-		}
-		else
-		{
-			if (*(int *)a->content < *(int *)b->content) //Orden descendente
-				swap(stack);
-			else
-				rr(stack);
-		}
-	}
-}
 
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
+
 	t_list	*a;
 	t_list	*b;
-	int	size_a;
-	int	size_b;
+	// int size;
 	
-	size_a = ft_lstsize(*stack_a);
-	size_b = ft_lstsize(*stack_b);
-
-	while ((!is_it_order_yet(*stack_a, 1) || !is_it_order_yet(*stack_b, 2)) && )
+	while (!is_it_order_yet(*stack_a, 1))
 	{
 		a = *stack_a;
 		b = a->next;
-		if (*(int *)a->content > *(int *)b->content)
-			push_b(stack_a, stack_b);
+		if (*(int *)a < *(int *)b)
+			swap_a(stack_a);
 		else
-			reverse_rotate_a(stack_a);
-		if (size_a <= 3 && !is_it_order_yet(*stack_a, 1))
-			sort_list_3_digits(stack_a, 1, swap_a, reverse_rotate_a);
-		else if (size_b <= 3 && !is_it_order_yet(*stack_b, 2))
-			sort_list_3_digits(stack_b, 2, swap_b, reverse_rotate_b);
-		print_listas(*stack_a, *stack_b);
+			rotate_a(stack_a);
 	}
-
+	// size = ft_lstsize(*stack_b);
+	// while (size--)
+	// 	push_a(stack_a, stack_b);
 }
+// void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **), void	rr(t_list **))
+// {
+// 	t_list	*a;
+// 	t_list	*b;
+
+
+// 	while (!is_it_order_yet(*stack, order))
+// 	{
+// 		a = *stack;
+// 		b = a->next;
+// 		if (order == 1)
+// 		{
+// 			if (*(int *)a->content > *(int *)b->content) //Orden ascendente
+// 				swap(stack);
+// 			else
+// 				rr(stack);
+// 		}
+// 		else
+// 		{
+// 			if (*(int *)a->content < *(int *)b->content) //Orden descendente
+// 				swap(stack);
+// 			else
+// 				rr(stack);
+// 		}
+// 	}
+// }
+// void	sort_list(t_list **stack_a, t_list **stack_b)
+// {
+// 	(void)stack_b;
+// 	t_list	*a;
+// 	t_list	*b;
+// 	int	size_a;
+// 	int	size_b;
+	
+// 	size_a = ft_lstsize(*stack_a);
+// 	size_b = ft_lstsize(*stack_b);
+
+// 	while ((!is_it_order_yet(*stack_a, 1) || !is_it_order_yet(*stack_b, 2)) && )
+// 	{
+// 		a = *stack_a;
+// 		b = a->next;
+// 		if (*(int *)a->content > *(int *)b->content)
+// 			push_b(stack_a, stack_b);
+// 		else
+// 			reverse_rotate_a(stack_a);
+// 		if (size_a <= 3 && !is_it_order_yet(*stack_a, 1))
+// 			sort_list_3_digits(stack_a, 1, swap_a, reverse_rotate_a);
+// 		else if (size_b <= 3 && !is_it_order_yet(*stack_b, 2))
+// 			sort_list_3_digits(stack_b, 2, swap_b, reverse_rotate_b);
+// 		print_listas(*stack_a, *stack_b);
+// 	}
+
+// }
 
 
 
