@@ -6,13 +6,13 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/04 18:14:04 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:54:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_list_3_digits(t_list **stack, int order)
+void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **), void	rr(t_list **))
 {
 	t_list	*a;
 	t_list	*b;
@@ -25,16 +25,16 @@ void	sort_list_3_digits(t_list **stack, int order)
 		if (order == 1)
 		{
 			if (*(int *)a->content > *(int *)b->content) //Orden ascendente
-				swap_a(stack);
+				swap(stack);
 			else
-				reverse_rotate_a(stack);
+				rr(stack);
 		}
 		else
 		{
 			if (*(int *)a->content < *(int *)b->content) //Orden descendente
-				swap_a(stack);
+				swap(stack);
 			else
-				reverse_rotate_a(stack);
+				rr(stack);
 		}
 	}
 }
@@ -42,18 +42,29 @@ void	sort_list_3_digits(t_list **stack, int order)
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
-	int	size;
+	t_list	*a;
+	t_list	*b;
+	int	size_a;
+	int	size_b;
 	
-	size = ft_lstsize(*stack_a);
-	while (!is_it_order_yet(*stack_a, 1))
+	size_a = ft_lstsize(*stack_a);
+	size_b = ft_lstsize(*stack_b);
+
+	while ((!is_it_order_yet(*stack_a, 1) || !is_it_order_yet(*stack_b, 2)) && )
 	{
-		if (size <= 4)
-			sort_list_3_digits(stack_a, 1);
+		a = *stack_a;
+		b = a->next;
+		if (*(int *)a->content > *(int *)b->content)
+			push_b(stack_a, stack_b);
 		else
-		{
-			
-		}
+			reverse_rotate_a(stack_a);
+		if (size_a <= 3 && !is_it_order_yet(*stack_a, 1))
+			sort_list_3_digits(stack_a, 1, swap_a, reverse_rotate_a);
+		else if (size_b <= 3 && !is_it_order_yet(*stack_b, 2))
+			sort_list_3_digits(stack_b, 2, swap_b, reverse_rotate_b);
+		print_listas(*stack_a, *stack_b);
 	}
+
 }
 
 
