@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/06 19:35:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:17:24 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,25 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 
 	t_list	*a;
 	t_list	*b;
+	t_list	*z;
 	// int size;
-	
+
 	while (!is_it_order_yet(*stack_a, 1))
 	{
 		a = *stack_a;
 		b = a->next;
-		if (*(int *)a < *(int *)b)
+		z = ft_lstlast(*stack_a);
+
+		printf("a: %d\nb: %d\nz: %d\n", *(int *)a->content, *(int *)b->content, *(int *)z->content);
+		// printf("Operación: ");
+
+		if (*(int *)a->content < *(int *)z->content && *(int *)a->content > *(int *)b->content )
 			swap_a(stack_a);
-		else
+		else if (((*(int *)b->content > *(int *)z->content)) && ((*(int *)z->content > *(int *)a->content)))
+			reverse_rotate_a(stack_a);
+		else if (*(int *)a->content > *(int *)b->content )
 			rotate_a(stack_a);
+		//print_listas(*stack_a, *stack_b);
 	}
 	// size = ft_lstsize(*stack_b);
 	// while (size--)
