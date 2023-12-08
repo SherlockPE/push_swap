@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 17:10:53 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/08 20:35:24 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	stack_b = NULL;
+		stack_b = NULL;
 	if (!check_errors(argc, argv))
 		printf("Error\n");
 	else
 	{
+		printf("TODO BIENNN\n");
 		create_list(argv, &stack_a);
 		// print_listas(stack_a, stack_b);
-		
-		sort_list(&stack_a, &stack_b);
-		
+		//sort_list(&stack_a, &stack_b);
 		// print_listas(stack_a, stack_b);
 	}
 	return (0);
