@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 14:23:20 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/08 16:56:53 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b);
 // Algoritmo
 void	sort_list(t_list **stack_a, t_list **stack_b);
 int     is_it_order_yet(t_list *stack, int order);
+int     sort_5_cases(t_list **stack_a);
 
 #endif

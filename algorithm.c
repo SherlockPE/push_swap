@@ -6,34 +6,58 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 14:54:44 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/08 17:06:45 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_list(t_list **stack_a, t_list **stack_b)
-{
-	(void)stack_b;
 
+int	sort_5_cases(t_list **stack_a)
+{
 	int	a;
 	int	b;
 	int	c;
 
+	// while (!is_it_order_yet(*stack_a, 1))
+	// {
+	a = *(int *)(*stack_a)->content;
+	b = *(int *)((*stack_a)->next)->content;
+	c = *(int *)(ft_lstlast(*stack_a)->content);
+
+	if (a > b && a > c && b < c)
+		rotate_a(stack_a);
+	else if ((a > b) || ( a > b && b > c))
+		swap_a(stack_a);	
+	else if (a < b && c > a)
+		swap_a(stack_a);
+	else if (a < b && c < a && c < b)
+		reverse_rotate_a(stack_a);
+	if (is_it_order_yet(*stack_a, 1))
+		return (1);
+	return (0);
+}
+
+void	sort_list(t_list **stack_a, t_list **stack_b)
+{
+	int size;
+	int	action;
+
 	while (!is_it_order_yet(*stack_a, 1))
 	{
-		a = *(int *)(*stack_a)->content;
-		b = *(int *)((*stack_a)->next)->content;
-		c = *(int *)(ft_lstlast(*stack_a)->content);
-
-		if (a > b && a > c && b < c)
-			rotate_a(stack_a);
-		else if (a > b ||( a > b && b > c))
-			swap_a(stack_a);	
-		else if (a < b && c > a)
-			swap_a(stack_a);
-		else if (a < b && c < a && c < b)
-			reverse_rotate_a(stack_a);
+		size = ft_lstsize(*stack_a);
+		if (size <= 3)
+			sort_5_cases(stack_a);
+		// else if (size >= 3 && is_it_order_yet(*stack_a, 1))
+		// 	sort_5_cases(stack_a);
+		else if (size >= 4)
+		{
+			action = sort_5_cases(stack_a);
+			while ((size-- - 3) && !is_it_order_yet(*stack_a, 1) && !action)
+				push_b(stack_a, stack_b);
+		}
+		while (*stack_b && is_it_order_yet(*stack_a, 1))
+			push_a(stack_a, stack_b);
 	}
 }
 
