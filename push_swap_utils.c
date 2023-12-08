@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 20:33:09 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/08 21:10:38 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,36 @@ void	print_listas(t_list *header_a, t_list *header_b)
 	printf("---------------------------------\n");
 }
 
+void	add_values(t_list **new_list, char **array)
+{
+	int	i;
+	int	j;
+	int	*content;
+
+	i = 0;
+	j = 0;
+	while (array[i])
+	{
+		// printf("Caracter actual: %s\n", array[i]);
+		content = malloc(sizeof(int));
+		*content = ft_atoi(array[i]);
+		ft_lstadd_back(new_list, ft_lstnew(content));
+		i++;
+	}
+	
+}
+
 void	create_list(char **list_values, t_list **new_list)
 {
 	int	i;
-	int	*content;
+	char	**box;
 
-	i = 1;	
-	content = (int *)malloc(sizeof(int));
-	*content = ft_atoi(list_values[i]);
-	*new_list = ft_lstnew(content);
-	while (list_values[++i])
+	i = 1;
+	while (list_values[i])
 	{
-		content = (int *)malloc(sizeof(int));
-		*content = ft_atoi(list_values[i]);
-		ft_lstadd_back(new_list, ft_lstnew(content));
+		box = ft_split(list_values[i], ' ');
+		add_values(new_list, box);
+		i++;
 	}
 }
 

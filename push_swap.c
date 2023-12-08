@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 20:35:24 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/08 20:41:45 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ int	main(int argc, char **argv)
 	{
 		printf("TODO BIENNN\n");
 		create_list(argv, &stack_a);
-		// print_listas(stack_a, stack_b);
+		print_listas(stack_a, stack_b);
 		//sort_list(&stack_a, &stack_b);
 		// print_listas(stack_a, stack_b);
 	}
+	ft_lstclear(&stack_a, free);
+	ft_lstclear(&stack_b, free);
 	return (0);
 }
 
