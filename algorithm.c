@@ -3,46 +3,43 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/07 19:17:24 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:54:44 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
 	(void)stack_b;
 
-	t_list	*a;
-	t_list	*b;
-	t_list	*z;
-	// int size;
+	int	a;
+	int	b;
+	int	c;
 
 	while (!is_it_order_yet(*stack_a, 1))
 	{
-		a = *stack_a;
-		b = a->next;
-		z = ft_lstlast(*stack_a);
+		a = *(int *)(*stack_a)->content;
+		b = *(int *)((*stack_a)->next)->content;
+		c = *(int *)(ft_lstlast(*stack_a)->content);
 
-		printf("a: %d\nb: %d\nz: %d\n", *(int *)a->content, *(int *)b->content, *(int *)z->content);
-		// printf("Operación: ");
-
-		if (*(int *)a->content < *(int *)z->content && *(int *)a->content > *(int *)b->content )
-			swap_a(stack_a);
-		else if (((*(int *)b->content > *(int *)z->content)) && ((*(int *)z->content > *(int *)a->content)))
-			reverse_rotate_a(stack_a);
-		else if (*(int *)a->content > *(int *)b->content )
+		if (a > b && a > c && b < c)
 			rotate_a(stack_a);
-		//print_listas(*stack_a, *stack_b);
+		else if (a > b ||( a > b && b > c))
+			swap_a(stack_a);	
+		else if (a < b && c > a)
+			swap_a(stack_a);
+		else if (a < b && c < a && c < b)
+			reverse_rotate_a(stack_a);
 	}
-	// size = ft_lstsize(*stack_b);
-	// while (size--)
-	// 	push_a(stack_a, stack_b);
 }
+
+
+
+// printf("a: %d\nb: %d\nc: %d\n\n\n", a, b, c);
 // void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **), void	rr(t_list **))
 // {
 // 	t_list	*a;
