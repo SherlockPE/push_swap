@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 21:10:38 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/09 01:27:04 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void	print_listas(t_list *header_a, t_list *header_b)
 	{
 		if (header_a && header_b)
 		{
-			printf("%i		|		%i\n", *(int *)header_a->content, *(int *)header_b->content);
+			printf("%i		|		%i\n", *(int *)header_a->content,
+				*(int *)header_b->content);
 			header_a = header_a->next;
 			header_b = header_b->next;
 		}
@@ -48,18 +49,16 @@ void	add_values(t_list **new_list, char **array)
 	j = 0;
 	while (array[i])
 	{
-		// printf("Caracter actual: %s\n", array[i]);
 		content = malloc(sizeof(int));
 		*content = ft_atoi(array[i]);
 		ft_lstadd_back(new_list, ft_lstnew(content));
 		i++;
 	}
-	
 }
 
 void	create_list(char **list_values, t_list **new_list)
 {
-	int	i;
+	int		i;
 	char	**box;
 
 	i = 1;
@@ -71,8 +70,8 @@ void	create_list(char **list_values, t_list **new_list)
 	}
 }
 
-//Function returns 0 if a not integer is found(ecept by '+' and '-' characters)
-int	is_it_int(char	**array)
+// Function returns 0 if a not integer is found(ecept by '+' and '-' characters)
+int	is_it_int(char **array)
 {
 	int	i;
 	int	j;
@@ -95,7 +94,7 @@ int	is_it_int(char	**array)
 }
 
 // Falta el 2.147.483.647 (número mayor a int)
-//Function returns 0 if a error is founded, and 1 if everything is okay
+// Function returns 0 if a error is founded, and 1 if everything is okay
 int	check_errors(int argc, char **argv)
 {
 	int		i;
@@ -118,39 +117,23 @@ int	check_errors(int argc, char **argv)
 
 int	error_content_size(t_list **stack)
 {
-	int size;
+	int	size;
 
 	size = ft_lstsize(*stack);
 	if (size <= 1)
-		return 0;
-	return 1;
+		return (0);
+	return (1);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		// j = 0;
-		// while (argv[i][j])
-		// {
-		// 	if (argv[i][j] == '-' || argv[i][j] == '+')
-		// 		j++;
-		// 	if (!ft_isdigit(argv[i][j]))
-		// 		return (0);
-		// 	j++;
-		// }
-		// if (j > 11)
-		// 	return (0);
-		// i++;
+// j = 0;
+// while (argv[i][j])
+// {
+// 	if (argv[i][j] == '-' || argv[i][j] == '+')
+// 		j++;
+// 	if (!ft_isdigit(argv[i][j]))
+// 		return (0);
+// 	j++;
+// }
+// if (j > 11)
+// 	return (0);
+// i++;

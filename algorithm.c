@@ -6,12 +6,11 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 17:06:45 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/09 01:28:56 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	sort_5_cases(t_list **stack_a)
 {
@@ -19,16 +18,13 @@ int	sort_5_cases(t_list **stack_a)
 	int	b;
 	int	c;
 
-	// while (!is_it_order_yet(*stack_a, 1))
-	// {
 	a = *(int *)(*stack_a)->content;
 	b = *(int *)((*stack_a)->next)->content;
 	c = *(int *)(ft_lstlast(*stack_a)->content);
-
 	if (a > b && a > c && b < c)
 		rotate_a(stack_a);
-	else if ((a > b) || ( a > b && b > c))
-		swap_a(stack_a);	
+	else if ((a > b) || (a > b && b > c))
+		swap_a(stack_a);
 	else if (a < b && c > a)
 		swap_a(stack_a);
 	else if (a < b && c < a && c < b)
@@ -40,7 +36,7 @@ int	sort_5_cases(t_list **stack_a)
 
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
-	int size;
+	int	size;
 	int	action;
 
 	while (!is_it_order_yet(*stack_a, 1))
@@ -48,8 +44,6 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 		size = ft_lstsize(*stack_a);
 		if (size <= 3)
 			sort_5_cases(stack_a);
-		// else if (size >= 3 && is_it_order_yet(*stack_a, 1))
-		// 	sort_5_cases(stack_a);
 		else if (size >= 4)
 		{
 			action = sort_5_cases(stack_a);
@@ -61,14 +55,12 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-
-
 // printf("a: %d\nb: %d\nc: %d\n\n\n", a, b, c);
-// void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **), void	rr(t_list **))
+// void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **),
+				//void	rr(t_list **))
 // {
 // 	t_list	*a;
 // 	t_list	*b;
-
 
 // 	while (!is_it_order_yet(*stack, order))
 // 	{
@@ -97,7 +89,7 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 // 	t_list	*b;
 // 	int	size_a;
 // 	int	size_b;
-	
+
 // 	size_a = ft_lstsize(*stack_a);
 // 	size_b = ft_lstsize(*stack_b);
 
@@ -118,30 +110,8 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // printf("Contenido de a: %d\n", *(int *)a->content);
 // printf("Contenido de b: %d\n\n", *(int *)b->content);
-
 
 // while (!is_it_order_yet(*stack_a, 1))
 // Solo entra si la lista no está ordenada

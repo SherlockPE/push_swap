@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plugin.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/04 16:37:11 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/09 01:30:28 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,14 @@ static int	check_answer(char *response, t_list **stack_a, t_list **stack_b,
 		rotate_b(stack_b);
 	else if (!ft_strncmp(response, "rr", 2))
 		rotate_rr(stack_a, stack_b);
-	else if(!ft_strncmp(response, "restart", 7))
-		return(*contador = 0, 1);
-	else if(!ft_strncmp(response, "cls", 3) || !ft_strncmp(response, "clear", 5))
+	else if (!ft_strncmp(response, "restart", 7))
+		return (*contador = 0, 1);
+	else if (!ft_strncmp(response, "cls", 3) || !ft_strncmp(response, "clear",
+			5))
 	{
 		printf("Pantalla limpiada\n");
 		system("clear");
-		return(1);
+		return (1);
 	}
 	else if (!ft_strncmp(response, "q", 1))
 		return (0);
@@ -69,9 +70,8 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b)
 		printf("Cantidad de operaciones: %d\n", count_operations);
 		printf("Nota: Puedes presionar (q) para salir\n");
 		printf("Ingresa un argumento: ");
-		// printf("sa\nsb\nss\npa\npb\nra\nrb\nrr\nrra\nrrb\nrrr\n");
 		scanf("%s", answer);
-		//system("clear");
+		// system("clear");
 		result = check_answer(answer, stack_a, stack_b, &count_operations);
 		if (!result)
 		{

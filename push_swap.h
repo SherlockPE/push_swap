@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/08 20:33:28 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/09 01:24:58 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdio.h>
 
 // Push swap Utils
-int     is_it_int(char	**array);
+int		is_it_int(char **array);
 int		check_errors(int argc, char **argv);
 void	create_list(char **list_values, t_list **new_list);
 void	print_listas(t_list *header_a, t_list *header_b);
@@ -47,7 +47,7 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b);
 
 // Algoritmo
 void	sort_list(t_list **stack_a, t_list **stack_b);
-int     is_it_order_yet(t_list *stack, int order);
-int     sort_5_cases(t_list **stack_a);
+int		is_it_order_yet(t_list *stack, int order);
+int		sort_5_cases(t_list **stack_a);
 
 #endif
