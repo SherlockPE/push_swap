@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/09 16:07:37 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/11 18:51:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	sort_5_cases(t_list **stack_a)
 	int	b;
 	int	c;
 
+	// while (!is_it_order_yet(*stack_a, 1))
+	// {
 	a = *(int *)(*stack_a)->content;
 	b = *(int *)((*stack_a)->next)->content;
 	c = *(int *)(ft_lstlast(*stack_a)->content);
@@ -29,25 +31,35 @@ void	sort_5_cases(t_list **stack_a)
 		swap_a(stack_a);
 	else if (a <= b && c < a && c < b)
 		reverse_rotate_a(stack_a);
+	// }
 }
 
 void	sort_list(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
+	int	size_b;
 
 	while (!is_it_order_yet(*stack_a, 1))
 	{
 		size = ft_lstsize(*stack_a);
 		if (size <= 3)
 			sort_5_cases(stack_a);
-		else if (size >= 4)
+		else if (size >= 4 && size <= 5)
 		{
-			sort_5_cases(stack_a);
-			while ((size-- - 3) && !is_it_order_yet(*stack_a, 1))
-				push_b(stack_a, stack_b);
+			if (!is_it_order_yet(*stack_a, 1))
+			{
+				while ((size-- - 3))
+					push_b(stack_a, stack_b);
+			}
 		}
-		while (*stack_b && is_it_order_yet(*stack_a, 1))
-			push_a(stack_a, stack_b);
+	}
+
+	size_b = ft_lstsize(*stack_b);
+	while (size_b && is_it_order_yet(*stack_a, 1))
+	{
+		push_a(stack_a, stack_b);
+		sort_5_cases(stack_a);
+		size_b = ft_lstsize(*stack_b);
 	}
 }
 
