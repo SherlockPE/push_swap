@@ -6,13 +6,13 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/11 20:03:37 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:41:34 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_5_cases(t_list **stack_a)
+void	sort_5_cases(t_list **stack_a, int *count)
 {
 	int	a;
 	int	b;
@@ -24,13 +24,25 @@ void	sort_5_cases(t_list **stack_a)
 	b = *(int *)((*stack_a)->next)->content;
 	c = *(int *)(ft_lstlast(*stack_a)->content);
 	if (a > b && a >= c && b <= c)
+	{
 		rotate_a(stack_a);
-	else if ((a > b) || (a > b && b > c))
-		swap_a(stack_a);
-	else if (a < b && c >= a)
-		swap_a(stack_a);
+		(*count)++;
+	}
 	else if (a <= b && c < a && c < b)
+	{
 		reverse_rotate_a(stack_a);
+		(*count)++;
+	}
+	else if ((a > b) || (a > b && b > c))
+	{
+		swap_a(stack_a);
+		(*count)++;
+	}
+	else if (a < b && c >= a)
+	{
+		swap_a(stack_a);
+		(*count)++;
+	}
 	// }
 }
 
@@ -38,43 +50,40 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 	int	size_b;
+	int	contador;
 
+	contador = 0;
 	while (!is_it_order_yet(*stack_a, 1))
 	{
 		size = ft_lstsize(*stack_a);
 		if (size <= 3)
-			sort_5_cases(stack_a);
+		{
+			sort_5_cases(stack_a, &contador);
+		}
 		else if (size >= 4 && size <= 5)
 		{
-			
-			if (!is_it_order_yet(*stack_a, 1))
+			sort_5_cases(stack_a, &contador);
+			while (size - 3 && !is_it_order_yet(*stack_a, 1))
 			{
-				// <--
-				while ((size-- - 3))
-					push_b(stack_a, stack_b);
+				push_b(stack_a, stack_b);
+				contador++;
+				size--;
 			}
 		}
-		print_listas(*stack_a, *stack_b);
-	}
-
-	size_b = ft_lstsize(*stack_b);
-	while (size_b && is_it_order_yet(*stack_a, 1))
-	{
-		push_a(stack_a, stack_b);
-		print_listas(*stack_a, *stack_b);
-		
-		sort_5_cases(stack_a);
-		print_listas(*stack_a, *stack_b);
-		
-		sort_list(stack_a, stack_b);// <---- Modification added
 		size_b = ft_lstsize(*stack_b);
-		print_listas(*stack_a, *stack_b);
+		while (size_b && is_it_order_yet(*stack_a, 1))
+		{
+			push_a(stack_a, stack_b);
+			contador++;
+			size_b = ft_lstsize(*stack_b);
+		}
 	}
+	// printf("\n\nCantidad de operaciones: %d\n\n", contador);
 }
 
 // printf("a: %d\nb: %d\nc: %d\n\n\n", a, b, c);
 // void	sort_list_3_digits(t_list **stack, int order, void	swap(t_list **),
-				//void	rr(t_list **))
+// void	rr(t_list **))
 // {
 // 	t_list	*a;
 // 	t_list	*b;

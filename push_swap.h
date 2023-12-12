@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/11 15:09:29 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 12:07:08 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b);
 // Algoritmo
 void	sort_list(t_list **stack_a, t_list **stack_b);
 int		is_it_order_yet(t_list *stack, int order);
-void    sort_5_cases(t_list **stack_a);
+void	sort_5_cases(t_list **stack_a, int *count);
+// void    sort_5_cases(t_list **stack_a);
 
 #endif
