@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/09 01:27:04 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/12 15:34:59 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,51 +70,13 @@ void	create_list(char **list_values, t_list **new_list)
 	}
 }
 
-// Function returns 0 if a not integer is found(ecept by '+' and '-' characters)
-int	is_it_int(char **array)
-{
-	int	i;
-	int	j;
 
-	i = 0;
-	while (array[i])
-	{
-		j = 0;
-		while (array[i][j])
-		{
-			if (array[i][j] == '+' || array[i][j] == '-')
-				j++;
-			if (!ft_isdigit(array[i][j]))
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
 // Falta el 2.147.483.647 (número mayor a int)
-// Function returns 0 if a error is founded, and 1 if everything is okay
-int	check_errors(int argc, char **argv)
-{
-	int		i;
-	char	**box;
-	int		b_iterator;
 
-	if (argc <= 1)
-		return (0);
-	i = 1;
-	while (argv[i])
-	{
-		b_iterator = 0;
-		box = ft_split(argv[i], ' ');
-		if (!is_it_int(box))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
+
+//if the list size is <= 1 it returns 0 else return 1
 int	error_content_size(t_list **stack)
 {
 	int	size;

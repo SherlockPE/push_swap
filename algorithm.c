@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 12:41:34 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:32:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 			size_b = ft_lstsize(*stack_b);
 		}
 	}
-	// printf("\n\nCantidad de operaciones: %d\n\n", contador);
+	printf("\n\nCantidad de operaciones: %d\n\n", contador);
 }
 
 // printf("a: %d\nb: %d\nc: %d\n\n\n", a, b, c);
