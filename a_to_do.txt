@@ -10,6 +10,8 @@ Proteger las funciones (desprotegerlas antes de entregar)
 Algoritmo de ordenamiento
     -->Está ordenada la lista? si sí, no debo hacer nada
     -->Función para comprar si una lista ya está ordenada con orden ascendente o descendente
+Gestión de errores
+    -->Número máximo y mínimo de int
 
 
 
@@ -34,7 +36,6 @@ Algoritmo de ordenamiento
 
 
 Gestión de errores
-    -->Número máximo y mínimo de int
     -->Números repetidos (opcional)
 Cambiar fondo de pantalla a uno que me guste
 Personalizar mi terminal
