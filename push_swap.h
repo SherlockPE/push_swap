@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 13:10:03 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:42:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
+# include <limits.h>
 # include <stdio.h>
 
 // Push swap Utils
-void	create_list(char **list_values, t_list **new_list);
+int		create_list(char **list_values, t_list **new_list);
 void	print_listas(t_list *header_a, t_list *header_b);
 int		error_content_size(t_list **stack);
 
-//Error cases
-int		check_errors(int argc, char **argv);
+// Error cases
+int		check_errors(int argc, char **argv, t_list **stack_a);
 int		is_it_int(char **array);
 
 // Swap (sa, sb, ss)

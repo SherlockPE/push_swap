@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 15:31:30 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:35:17 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	stack_b = NULL;
-	if (!check_errors(argc, argv))
+	if (!check_errors(argc, argv, &stack_a))
 		printf("Error\n");
 	else
 	{

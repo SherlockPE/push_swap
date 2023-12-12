@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 15:34:59 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:34:09 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_listas(t_list *header_a, t_list *header_b)
 		if (header_a && header_b)
 		{
 			printf("%i		|		%i\n", *(int *)header_a->content,
-				*(int *)header_b->content);
+								*(int *)header_b->content);
 			header_a = header_a->next;
 			header_b = header_b->next;
 		}
@@ -39,24 +39,35 @@ void	print_listas(t_list *header_a, t_list *header_b)
 	printf("---------------------------------\n");
 }
 
-void	add_values(t_list **new_list, char **array)
+int	add_values(t_list **new_list, char **array)
 {
-	int	i;
-	int	j;
-	int	*content;
+	int		i;
+	int		j;
+	long	*content;
 
 	i = 0;
 	j = 0;
 	while (array[i])
 	{
-		content = malloc(sizeof(int));
+		content = malloc(sizeof(long));
+		if (!content)
+		{
+			ft_lstclear(new_list, free);
+			return (0);
+		}
 		*content = ft_atoi(array[i]);
+		if (*content > INT_MAX || *content < INT_MIN)
+		{
+			ft_lstclear(new_list, free);
+			return (0);
+		}
 		ft_lstadd_back(new_list, ft_lstnew(content));
 		i++;
 	}
+	return (1);
 }
 
-void	create_list(char **list_values, t_list **new_list)
+int	create_list(char **list_values, t_list **new_list)
 {
 	int		i;
 	char	**box;
@@ -65,18 +76,16 @@ void	create_list(char **list_values, t_list **new_list)
 	while (list_values[i])
 	{
 		box = ft_split(list_values[i], ' ');
-		add_values(new_list, box);
+		if (!add_values(new_list, box))
+			return (0);
 		i++;
 	}
+	return (1);
 }
-
-
 
 // Falta el 2.147.483.647 (número mayor a int)
 
-
-
-//if the list size is <= 1 it returns 0 else return 1
+// if the list size is <= 1 it returns 0 else return 1
 int	error_content_size(t_list **stack)
 {
 	int	size;

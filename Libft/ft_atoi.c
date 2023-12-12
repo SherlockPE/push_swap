@@ -6,14 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:23:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/09/25 14:14:02 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:26:33 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int	symbol;
-	int	number;
+	long	number;
 
 	number = 0;
 	symbol = 1;

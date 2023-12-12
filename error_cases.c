@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:08:39 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 15:52:21 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:48:01 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,7 @@ int	is_it_int(char **array)
 	return (1);
 }
 
-// char	*create_single_str(char **argv)
-// {
-	
-// }
-
-// int is_it_duplicated(char **argv)
-// {
-// 	int i;
-// 	int j;
-
-// 	i = 0;
-// 	while (argv[i])
-// 	{
-// 		j = 0;
-// 		i_copy = 0;
-// 		while (argv[i][j])
-// 		{
-			
-// 		}
-		
-// 	}
-	
-// }
-
-static void	*free_split(char **array)
+static void	free_split(char **array)
 {
 	int	index;
 
@@ -70,7 +46,7 @@ static void	*free_split(char **array)
 }
 
 // Function returns 0 if a error is founded and 1 if everything is okay
-int	check_errors(int argc, char **argv)
+int	check_errors(int argc, char **argv, t_list **stack_a)
 {
 	int		i;
 	char	**box;
@@ -88,5 +64,11 @@ int	check_errors(int argc, char **argv)
 		i++;
 		free_split(box);
 	}
+	if(!create_list(argv, stack_a))
+	{
+		ft_lstclear(stack_a, free);
+		return (0);
+	}
+	ft_lstclear(stack_a, free);
 	return (1);
 }
