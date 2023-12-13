@@ -6,14 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:08:39 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 16:48:01 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:45:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Function returns 0 if a not integer is found(ecept by '+' and '-' characters)
-int	is_it_int(char **array)
+static int	is_it_int(char **array)
 {
 	int	i;
 	int	j;

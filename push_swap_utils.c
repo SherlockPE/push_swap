@@ -6,11 +6,27 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 16:34:09 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:33:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	create_list(char **list_values, t_list **new_list)
+{
+	int		i;
+	char	**box;
+
+	i = 1;
+	while (list_values[i])
+	{
+		box = ft_split(list_values[i], ' ');
+		if (!add_values(new_list, box))
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 void	print_listas(t_list *header_a, t_list *header_b)
 {
@@ -39,7 +55,18 @@ void	print_listas(t_list *header_a, t_list *header_b)
 	printf("---------------------------------\n");
 }
 
-int	add_values(t_list **new_list, char **array)
+int	error_content_size(t_list **stack)
+{
+	int	size;
+
+	size = ft_lstsize(*stack);
+	if (size <= 1)
+		return (0);
+	return (1);
+}
+
+//This function is a dependency of the function "create_list"
+static int	add_values(t_list **new_list, char **array)
 {
 	int		i;
 	int		j;
@@ -67,34 +94,10 @@ int	add_values(t_list **new_list, char **array)
 	return (1);
 }
 
-int	create_list(char **list_values, t_list **new_list)
-{
-	int		i;
-	char	**box;
-
-	i = 1;
-	while (list_values[i])
-	{
-		box = ft_split(list_values[i], ' ');
-		if (!add_values(new_list, box))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 // Falta el 2.147.483.647 (número mayor a int)
 
 // if the list size is <= 1 it returns 0 else return 1
-int	error_content_size(t_list **stack)
-{
-	int	size;
-
-	size = ft_lstsize(*stack);
-	if (size <= 1)
-		return (0);
-	return (1);
-}
 
 // j = 0;
 // while (argv[i][j])
