@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/13 12:53:14 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:34:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int		error_content_size(t_list **stack);
 
 // Error cases
 int		check_errors(int argc, char **argv, t_list **stack_a);
+int		repeat_numbers(t_list *new_list);
 
 // Operations
 //      Swap (sa, sb, ss)

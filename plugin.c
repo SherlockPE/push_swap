@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   plugin.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:11:32 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/09 01:30:28 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/13 16:46:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	enter_parameter(t_list **stack_a, t_list **stack_b)
 		printf("Nota: Puedes presionar (q) para salir\n");
 		printf("Ingresa un argumento: ");
 		scanf("%s", answer);
-		// system("clear");
+		system("clear");
 		result = check_answer(answer, stack_a, stack_b, &count_operations);
 		if (!result)
 		{

@@ -6,16 +6,16 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/13 13:02:02 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 15:35:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	bubble_sort(stack_a, stack_b)
-{
+// void	chunks(stack_a, stack_b)
+// {
 	
-}
+// }
 
 void	sort_5_cases(t_list **stack_a, int *count)
 {

@@ -6,11 +6,40 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/13 12:33:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:38:00 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	clear_lista(t_list	**lista)
+{
+	ft_lstclear(lista, free);
+	return (0);
+}
+
+//This function is a dependency of the function "create_list"
+static int	add_values(t_list **new_list, char **array)
+{
+	int		i;
+	int		j;
+	long	*content;
+
+	i = 0;
+	j = 0;
+	while (array[i])
+	{
+		content = malloc(sizeof(long));
+		if (!content)
+			return (clear_lista(new_list));
+		*content = ft_atoi(array[i]);
+		if (*content > INT_MAX || *content < INT_MIN)
+			return (clear_lista(new_list));
+		ft_lstadd_back(new_list, ft_lstnew(content));
+		i++;
+	}
+	return (1);
+}
 
 int	create_list(char **list_values, t_list **new_list)
 {
@@ -25,7 +54,7 @@ int	create_list(char **list_values, t_list **new_list)
 			return (0);
 		i++;
 	}
-	return (1);
+	return (repeat_numbers(*new_list));
 }
 
 void	print_listas(t_list *header_a, t_list *header_b)
@@ -65,34 +94,6 @@ int	error_content_size(t_list **stack)
 	return (1);
 }
 
-//This function is a dependency of the function "create_list"
-static int	add_values(t_list **new_list, char **array)
-{
-	int		i;
-	int		j;
-	long	*content;
-
-	i = 0;
-	j = 0;
-	while (array[i])
-	{
-		content = malloc(sizeof(long));
-		if (!content)
-		{
-			ft_lstclear(new_list, free);
-			return (0);
-		}
-		*content = ft_atoi(array[i]);
-		if (*content > INT_MAX || *content < INT_MIN)
-		{
-			ft_lstclear(new_list, free);
-			return (0);
-		}
-		ft_lstadd_back(new_list, ft_lstnew(content));
-		i++;
-	}
-	return (1);
-}
 
 
 // Falta el 2.147.483.647 (número mayor a int)
