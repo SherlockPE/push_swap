@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 15:32:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/13 12:13:15 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,7 @@ void	sort_list(t_list **stack_a, t_list **stack_b)
 	{
 		size = ft_lstsize(*stack_a);
 		if (size <= 3)
-		{
 			sort_5_cases(stack_a, &contador);
-		}
 		else if (size >= 4 && size <= 5)
 		{
 			sort_5_cases(stack_a, &contador);
