@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/14 17:17:11 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:49:33 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,26 @@
 
 int	sort_list(t_list **stack_a, t_list **stack_b)
 {
-	// int	size;
-	// int	size_b;
+	int	size;
 	int	contador;
 
 	contador = 0;
-	if(!bubble_sort_algorithm(stack_a, stack_b))
-		return(0);
-	// while (!is_it_order_yet(*stack_a, 1))
-	// {
-	// 	size = ft_lstsize(*stack_a);
-	// 	if (size <= 3)
-	// 	{
-	// 		sort_5_cases(stack_a, &contador);
-	// 	}
-	// 	else if (size >= 4 && size <= 5)
-	// 	{
-	// 		bubble_sort_algorithm(stack_a, stack_b);
-	// 	}
-	// 	// size_b = ft_lstsize(*stack_b);
-	// 	// while (size_b && is_it_order_yet(*stack_a, 1))
-	// 	// {
-	// 	// 	push_a(stack_a, stack_b);
-	// 	// 	contador++;
-	// 	// 	size_b = ft_lstsize(*stack_b);
-	// 	// }
-	// }
+	while (!is_it_order_yet(*stack_a, 1))
+	{
+		size = ft_lstsize(*stack_a);
+		if (size <= 3)
+			sort_5_cases(stack_a, &contador);
+		else if (size >= 4 && size <= 5)
+		{
+			if(!bubble_sort_algorithm(stack_a, stack_b))
+				return(0);
+			bubble_sort_algorithm(stack_a, stack_b);
+		}
+		else
+		{
+			return (printf("I cannot do this... YET"), 0);
+		}
+	}
 	printf("\n\nCantidad de operaciones: %d\n", contador);
 	return (1);
 }
