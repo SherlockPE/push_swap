@@ -6,14 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/13 16:34:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:17:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft/libft.h"
+# include "Libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
 
@@ -50,7 +50,12 @@ void	reverse_rotate_rr(t_list **stack_a, t_list **stack_b);
 void	enter_parameter(t_list **stack_a, t_list **stack_b);
 
 // Algorithm
-void	sort_list(t_list **stack_a, t_list **stack_b);
+int		sort_list(t_list **stack_a, t_list **stack_b);
+
+// Bubble sort algorithm
+int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
+int		*convert_to_int_array(t_list *stack);
+int		get_lower_number_position(int *cadena, int size);
 
 // Algorithm utils
 void	sort_5_cases(t_list **stack_a, int *count);
