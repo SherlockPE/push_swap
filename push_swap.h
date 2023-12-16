@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/14 20:43:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:37:04 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ int		sort_list(t_list **stack_a, t_list **stack_b);
 int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Algorithm utils
-void	sort_5_cases(t_list **stack_a, int *count);
 int		is_it_order_yet(t_list *stack, int order);
-// void    sort_5_cases(t_list **stack_a);
+void    sort_5_cases(t_list **stack_a);
 
 #endif

@@ -6,49 +6,29 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/14 19:58:58 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:37:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	chunks(stack_a, stack_b)
-// {
-	
-// }
-
-void	sort_5_cases(t_list **stack_a, int *count)
+void	sort_5_cases(t_list **stack_a)
 {
 	int	a;
 	int	b;
 	int	c;
 
-	// while (!is_it_order_yet(*stack_a, 1))
-	// {
 	a = *(int *)(*stack_a)->content;
 	b = *(int *)((*stack_a)->next)->content;
 	c = *(int *)(ft_lstlast(*stack_a)->content);
 	if (a > b && a >= c && b <= c)
-	{
 		rotate_a(stack_a);
-		(*count)++;
-	}
 	else if (a <= b && c < a && c < b)
-	{
 		reverse_rotate_a(stack_a);
-		(*count)++;
-	}
 	else if ((a > b) || (a > b && b > c))
-	{
 		swap_a(stack_a);
-		(*count)++;
-	}
 	else if (a < b && c >= a)
-	{
 		swap_a(stack_a);
-		(*count)++;
-	}
-	// }
 }
 
 //Retorna 0 si está desordenada y 1 si está ordenada

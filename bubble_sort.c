@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:59:21 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/14 20:55:36 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:35:52 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	*convert_to_int_array(t_list *stack)
 	return (int_array);
 }
 
-static void	rotate_operations(t_list **stack_a, t_list **stack_b)
+static	int	rotate_operations(t_list **stack_a, t_list **stack_b)
 {
 	int size;
 	int iterations;
@@ -58,8 +58,9 @@ static void	rotate_operations(t_list **stack_a, t_list **stack_b)
 
 	size = ft_lstsize(*stack_a);
 	int_array = convert_to_int_array(*stack_a);
+	if (!int_array)
+		return (0);
 	position = get_lower_number_position(int_array, ft_lstsize(*stack_a));
-
 	if (position <= size / 2)
 	{
 		iterations = position - 1;
@@ -73,14 +74,21 @@ static void	rotate_operations(t_list **stack_a, t_list **stack_b)
 			reverse_rotate_a(stack_a);
 	}
 	push_b(stack_a, stack_b);
+	free(int_array);
+	return (1);
 }
 
+//Function found the smallest number in a list and then it moved to stackB
+//then, when it finished, do PA
 int	bubble_sort_algorithm(t_list **stack_a, t_list **stack_b)
 {
 	int size_b;
 	
 	while (!is_it_order_yet(*stack_a, 1))
-		rotate_operations(stack_a, stack_b);
+	{
+		if(!rotate_operations(stack_a, stack_b))
+			return (0);
+	}
 	size_b = ft_lstsize(*stack_b);
 	while (size_b--)
 		push_a(stack_a, stack_b);

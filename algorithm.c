@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/14 20:56:27 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:43:13 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,19 @@ int	sort_list(t_list **stack_a, t_list **stack_b)
 	{
 		size = ft_lstsize(*stack_a);
 		if (size <= 3)
-			sort_5_cases(stack_a, &contador);
+			sort_5_cases(stack_a);
 		else if (size >= 4 && size <= 5)
 		{
 			if(!bubble_sort_algorithm(stack_a, stack_b))
 				return(0);
-			bubble_sort_algorithm(stack_a, stack_b);
 		}
 		else
 		{
-			return (printf("I cannot do this... YET"), 0);
+			if(!bubble_sort_algorithm(stack_a, stack_b))
+				return(0);
+			// return (printf("I cannot do this... YET"), 0);
 		}
 	}
-	printf("\n\nCantidad de operaciones: %d\n", contador);
 	return (1);
 }
 
