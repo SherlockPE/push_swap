@@ -6,35 +6,36 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:08:39 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/13 16:41:50 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/16 19:25:06 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	repeat_numbers(t_list	*new_list)
+int	repeat_numbers(t_list *new_list)
 {
-	int *actual_content;
-	t_list	*temp;
-	
-	temp = new_list->next;
+	int		*actual_content;
+	t_list	*next_elements;
+
 	while (new_list)
 	{
 		actual_content = (int *)new_list->content;
-		while (temp)
+		next_elements = new_list->next;
+
+
+		while (next_elements)
 		{
-			if (actual_content == (int *)temp->content)
+			if (*actual_content == *(int *)next_elements->content)
 			{
 				printf("Error\n");
 				return (0);
 			}
-			temp = temp->next;
+			next_elements = next_elements->next;
 		}
 		new_list = new_list->next;
 	}
 	return (1);
 }
-
 
 // Function returns 0 if a not integer is found(ecept by '+' and '-' characters)
 static int	is_it_int(char **array)
