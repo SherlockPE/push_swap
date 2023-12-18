@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:37:54 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/18 15:48:04 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int		sort_list(t_list **stack_a, t_list **stack_b);
 
 // Bubble sort algorithm
 int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
+
+// Chunks algorithm
+int		**chunks_alg(t_list **stack_a, t_list **stack_b);
 
 // Algorithm utils
 int		is_it_order_yet(t_list *stack, int order);

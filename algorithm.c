@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:35:05 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/18 15:46:19 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	sort_list(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			if (!bubble_sort_algorithm(stack_a, stack_b))
+			if (!chunks_alg(stack_a, stack_b))
 				return (0);
 		}
 	}
