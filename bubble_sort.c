@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:59:21 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/16 19:35:52 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:31:48 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static int	get_lower_number_position(int *cadena, int size)
 
 static int	*convert_to_int_array(t_list *stack)
 {
-	int i;
-	int *int_array;
+	int	i;
+	int	*int_array;
 
 	int_array = (int *)calloc(ft_lstsize(stack), sizeof(int *));
 	if (!int_array)
@@ -49,12 +49,12 @@ static int	*convert_to_int_array(t_list *stack)
 	return (int_array);
 }
 
-static	int	rotate_operations(t_list **stack_a, t_list **stack_b)
+static int	rotate_operations(t_list **stack_a, t_list **stack_b)
 {
-	int size;
-	int iterations;
+	int	size;
+	int	iterations;
 	int	position;
-	int *int_array;
+	int	*int_array;
 
 	size = ft_lstsize(*stack_a);
 	int_array = convert_to_int_array(*stack_a);
@@ -78,15 +78,15 @@ static	int	rotate_operations(t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-//Function found the smallest number in a list and then it moved to stackB
-//then, when it finished, do PA
+// Function found the smallest number in a list and then it moved to stackB
+// then, when it finished, do PA
 int	bubble_sort_algorithm(t_list **stack_a, t_list **stack_b)
 {
-	int size_b;
-	
+	int	size_b;
+
 	while (!is_it_order_yet(*stack_a, 1))
 	{
-		if(!rotate_operations(stack_a, stack_b))
+		if (!rotate_operations(stack_a, stack_b))
 			return (0);
 	}
 	size_b = ft_lstsize(*stack_b);

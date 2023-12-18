@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/16 19:37:04 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:32:22 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Algorithm utils
 int		is_it_order_yet(t_list *stack, int order);
-void    sort_5_cases(t_list **stack_a);
+void	sort_5_cases(t_list **stack_a);
 
 #endif

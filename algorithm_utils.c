@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/16 19:37:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:33:20 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	sort_5_cases(t_list **stack_a)
 }
 
 //Retorna 0 si está desordenada y 1 si está ordenada
-//Si order es 1 comprueba de forma ascendente si es 2 o cualquier otro número, lo hace de forma descendente
+//Si order es 1 comprueba de forma ascendente 
+//si es 2 o cualquier otro número, lo hace de forma descendente
 int	is_it_order_yet(t_list *stack, int order)
 {
 	t_list	*tmp_next;
@@ -64,4 +65,3 @@ int	is_it_order_yet(t_list *stack, int order)
 
 //1                           --> orden ascendente
 //2 (o cualquier otro número) --> orden descendente
-

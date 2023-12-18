@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:23:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 16:26:33 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:35:37 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 long	ft_atoi(const char *str)
 {
-	int	symbol;
+	int		symbol;
 	long	number;
 
 	number = 0;

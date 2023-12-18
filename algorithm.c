@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/16 19:43:13 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/18 09:35:05 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ int	sort_list(t_list **stack_a, t_list **stack_b)
 			sort_5_cases(stack_a);
 		else if (size >= 4 && size <= 5)
 		{
-			if(!bubble_sort_algorithm(stack_a, stack_b))
-				return(0);
+			if (!bubble_sort_algorithm(stack_a, stack_b))
+				return (0);
 		}
 		else
 		{
-			if(!bubble_sort_algorithm(stack_a, stack_b))
-				return(0);
-			// return (printf("I cannot do this... YET"), 0);
+			if (!bubble_sort_algorithm(stack_a, stack_b))
+				return (0);
 		}
 	}
 	return (1);
