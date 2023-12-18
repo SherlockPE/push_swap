@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:32:22 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/18 09:37:54 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "Libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 // Push swap Utils
 int		create_list(char **list_values, t_list **new_list);

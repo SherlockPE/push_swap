@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
+#    By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 16:58:57 by flopez-r          #+#    #+#              #
-#    Updated: 2023/12/14 17:00:10 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/12/18 09:39:18 by fabriciolop      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = push_swap
 SRC = push_swap_utils.c push_swap.c \
 		operations_swap.c operations_push.c operations_rotate.c \
 		operations_reverse_rotate.c push_swap_utils.c plugin.c \
-		algorithm.c algorithm_utils.c error_cases.c bubble_sort.c
+		algorithm.c algorithm_utils.c error_cases.c bubble_sort.c \
+		chunks_algorithm.c
 OBJ = $(SRC:.c=.o)
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
