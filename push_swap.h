@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 15:48:04 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/19 09:30:06 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,11 @@ int		sort_list(t_list **stack_a, t_list **stack_b);
 int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Chunks algorithm
-int		**chunks_alg(t_list **stack_a, t_list **stack_b);
+int     chunks_alg(t_list **stack_a, t_list **stack_b);
 
 // Algorithm utils
+int     get_lower_number_position(int *cadena, int size);
+int     *convert_to_int_array(t_list *stack);
 int		is_it_order_yet(t_list *stack, int order);
 void	sort_5_cases(t_list **stack_a);
 

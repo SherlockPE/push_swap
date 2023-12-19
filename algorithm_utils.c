@@ -3,14 +3,51 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:33:20 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/19 08:22:40 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_lower_number_position(int *cadena, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while (size > j)
+	{
+		if (cadena[i] < cadena[j])
+			j++;
+		else
+		{
+			i = j;
+			j = i + 1;
+		}
+	}
+	return (i + 1);
+}
+
+int	*convert_to_int_array(t_list *stack)
+{
+	int	i;
+	int	*int_array;
+
+	int_array = (int *)calloc(ft_lstsize(stack), sizeof(int *));
+	if (!int_array)
+		return (0);
+	i = 0;
+	while (stack)
+	{
+		int_array[i++] = *(int *)stack->content;
+		stack = stack->next;
+	}
+	return (int_array);
+}
 
 void	sort_5_cases(t_list **stack_a)
 {
