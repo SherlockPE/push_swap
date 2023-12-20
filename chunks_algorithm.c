@@ -6,89 +6,51 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/19 09:33:46 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/20 14:50:36 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	move_elements(t_list **stack_a, t_list **stack_b, int **array_2_D)
-// {
-		
-// }
 
-int	**free_array(int **result)
-{
-	//Falta el while
-	free (result);
-	return (0);
-}
-
-int	**separate_in_chunks(int *array, int size_initial, int separator)
-{
-	int    **result;
-	int    num_blocks;
-	int i;
-	int j;
-	int z;
-	int impar;
-
-	num_blocks = size_initial / separator;
-	impar = 0;
-	if (size_initial % 2 != 0)
-	  num_blocks++;
-	result = (int **)malloc(num_blocks * sizeof(int *));
-	if (!result)
-		return (0);
-	i = 0;
-	j = 0;
-	while (j < num_blocks)
-	{
-		z = 0;
-		if (j == (num_blocks - 1) && (size_initial % 2 == 0))
-		  separator = size_initial - i;  
-		result[j] = (int *)calloc(separator, sizeof(int));
-		if (!result[j])
-			return (free_array(result));
-		while (z < separator)
-			result[j][z++] = array[i++];
-		j++;
-	}
-	return (result);
-}
-
+//Optimizar algoritmo de ordenacion
 static void swap(int *a, int *b) {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-static void	order_array(int *array, int size) {
-	int i;
-	int swapped;
+void	merge_split(int *original_array, int *copy_array, int inicio, int size)
+{
+	int	middle;
 
-	while (1)
-	{
-		swapped = 0;
-		i = 0;
-		while (i < size - 1)
-		{ 
-			if (array[i] > array[i + 1])
-			{
-				swap(&array[i], &array[i + 1]);
-				swapped = 1;
-			}
-			i++;
-		}
-		if (!swapped)
-			break;
-	}
+	if (size <= 1);
+		return ;
+	middle = size / 2;
+	merge_split(original_array, copy_array, inicio, middle);
+}
+
+int	merge_sort(int *original_array, int size)
+{
+	int	i;
+	int	*copy_array;
+
+	copy_array = ft_calloc(size, sizeof(int));
+	if (!copy_array)
+		return (0);
+
+    i = -1;
+    while (i++ < size - 1)
+        copy_array[i] = original_array[i];
+
+	merge_split(original_array, copy_array, 0, size);
+	return (1);	
 }
 
 int	chunks_alg(t_list **stack_a, t_list **stack_b)
 {
+	// int	**array_2_D;
 	int *array_1_D;
-	int	**array_2_D;
 	int size;
 	int separator;
 
@@ -98,12 +60,10 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b)
 	array_1_D = convert_to_int_array(*stack_a);
 	if (!array_1_D)
 		return (0);
-	order_array(array_1_D, size);
-	separator = size / 4;
-
-//	array_2_D = separate_in_chunks(array_1_D, size, separator);
-
+	if (!merge_sort(array_1_D, size))
+		return (0);
 	
+	// array_2_D = separate_in_chunks(array_1_D, size, separator);
 	//move_elements(stack_a, stack_b, array_2_D);
 	return (1);
 }

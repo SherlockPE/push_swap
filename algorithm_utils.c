@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/19 08:22:40 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/19 17:43:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,7 @@ void	sort_5_cases(t_list **stack_a)
 		rotate_a(stack_a);
 	else if (a <= b && c < a && c < b)
 		reverse_rotate_a(stack_a);
-	else if ((a > b) || (a > b && b > c))
-		swap_a(stack_a);
-	else if (a < b && c >= a)
+	else if ((a > b) || (a < b && c >= a))
 		swap_a(stack_a);
 }
 
