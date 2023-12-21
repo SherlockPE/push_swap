@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:34:23 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/21 19:25:19 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,18 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	stack_b = NULL;
-	if (!check_errors(argc, argv, &stack_a))
-		printf("Error\n");
+	if (!check_errors(argc, argv))
+		return(ft_perror("Error\n"));
 	else
 	{
 		if (!create_list(argv, &stack_a))
 			return (0);
+		if (!stack_a)
+			return (ft_perror("Error\n"));
+		// print_listas(stack_a, stack_b);
 		if (!sort_list(&stack_a, &stack_b))
 			return (0);
+		// print_listas(stack_a, stack_b);
 	}
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);

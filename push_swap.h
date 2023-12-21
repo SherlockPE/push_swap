@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/19 09:30:06 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:21:47 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@
 int		create_list(char **list_values, t_list **new_list);
 void	print_listas(t_list *header_a, t_list *header_b);
 int		error_content_size(t_list **stack);
+int		ft_perror(char *message);
 
 // Error cases
-int		check_errors(int argc, char **argv, t_list **stack_a);
+int		check_errors(int argc, char **argv);
 int		repeat_numbers(t_list *new_list);
 
 // Operations
@@ -57,11 +58,11 @@ int		sort_list(t_list **stack_a, t_list **stack_b);
 int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Chunks algorithm
-int     chunks_alg(t_list **stack_a, t_list **stack_b);
+int		chunks_alg(t_list **stack_a, t_list **stack_b);
 
 // Algorithm utils
-int     get_lower_number_position(int *cadena, int size);
-int     *convert_to_int_array(t_list *stack);
+int		get_lower_number_position(int *cadena, int size);
+int		*convert_to_int_array(t_list *stack);
 int		is_it_order_yet(t_list *stack, int order);
 void	sort_5_cases(t_list **stack_a);
 

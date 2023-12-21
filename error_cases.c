@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:08:39 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/16 19:25:06 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:23:54 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	repeat_numbers(t_list *new_list)
 		while (next_elements)
 		{
 			if (*actual_content == *(int *)next_elements->content)
-			{
-				printf("Error\n");
-				return (0);
-			}
+				return(ft_perror("Error\n"));
 			next_elements = next_elements->next;
 		}
 		new_list = new_list->next;
@@ -49,7 +46,7 @@ static int	is_it_int(char **array)
 		j = 0;
 		while (array[i][j])
 		{
-			if (array[i][j] == '+' || array[i][j] == '-')
+			if (!ft_isdigit(array[i][j - 1]) && (array[i][j] == '+' || array[i][j] == '-'))
 				j++;
 			if (!ft_isdigit(array[i][j]))
 				return (0);
@@ -71,7 +68,7 @@ static void	free_split(char **array)
 }
 
 // Function returns 0 if a error is founded and 1 if everything is okay
-int	check_errors(int argc, char **argv, t_list **stack_a)
+int	check_errors(int argc, char **argv)
 {
 	int		i;
 	char	**box;
@@ -85,10 +82,12 @@ int	check_errors(int argc, char **argv, t_list **stack_a)
 		b_iterator = 0;
 		box = ft_split(argv[i], ' ');
 		if (!is_it_int(box))
-			return (free_split(box), 0);
+		{
+			free_split(box);
+			return (0);
+		}
 		i++;
 		free_split(box);
 	}
-	ft_lstclear(stack_a, free);
 	return (1);
 }

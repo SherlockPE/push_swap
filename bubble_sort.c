@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:59:21 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/19 08:22:32 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:36:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,18 @@ static int	rotate_operations(t_list **stack_a, t_list **stack_b)
 // then, when it finished, do PA
 int	bubble_sort_algorithm(t_list **stack_a, t_list **stack_b)
 {
+	int	size_a;
 	int	size_b;
 
-	while (!is_it_order_yet(*stack_a, 1))
+	size_a = ft_lstsize(*stack_a);
+	while (!is_it_order_yet(*stack_a, 1) && size_a > 3)
 	{
 		if (!rotate_operations(stack_a, stack_b))
 			return (0);
+		size_a = ft_lstsize(*stack_a);
 	}
+	while (!is_it_order_yet(*stack_a, 1))
+		sort_5_cases(stack_a);
 	size_b = ft_lstsize(*stack_b);
 	while (size_b--)
 		push_a(stack_a, stack_b);

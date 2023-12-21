@@ -3,18 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/18 09:32:47 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/21 18:44:46 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_perror(char *message)
+{
+	ft_putstr_fd(message, 2);
+	return (0);
+}
+
 int	clear_lista(t_list	**lista)
 {
 	ft_lstclear(lista, free);
+	ft_perror("Error\n");
 	return (0);
 }
 
