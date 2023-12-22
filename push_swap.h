@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/21 19:21:47 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:14:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Chunks algorithm
 int		chunks_alg(t_list **stack_a, t_list **stack_b);
+int		merge_sort(int *original_array, int size);
 
 // Algorithm utils
 int		get_lower_number_position(int *cadena, int size);

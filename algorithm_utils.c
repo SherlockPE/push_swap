@@ -6,13 +6,15 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/19 17:43:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:11:44 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_lower_number_position(int *cadena, int size)
+//Function gets the position of the lowest element in the |array|
+//not more than |size| elementes
+int	get_lower_number_position(int *array, int size)
 {
 	int	i;
 	int	j;
@@ -21,7 +23,7 @@ int	get_lower_number_position(int *cadena, int size)
 	j = 1;
 	while (size > j)
 	{
-		if (cadena[i] < cadena[j])
+		if (array[i] < array[j])
 			j++;
 		else
 		{

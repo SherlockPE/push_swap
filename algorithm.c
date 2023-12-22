@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/19 17:41:41 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:00:49 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 int	sort_list(t_list **stack_a, t_list **stack_b)
 {
-	int	size;
-	int	contador;
+	chunks_alg(stack_a, stack_b);
+	// int	size;
+	// int	contador;
 
-	contador = 0;
-	while (!is_it_order_yet(*stack_a, 1))
-	{
-		size = ft_lstsize(*stack_a);
-		if (size <= 3)
-			sort_5_cases(stack_a);
-		else if (size >= 4 && size <= 5)
-		{
-			if (!bubble_sort_algorithm(stack_a, stack_b))
-				return (0);
-		}
-		else
-		{
-			if (!chunks_alg(stack_a, stack_b))
-				return (0);
-		}
-	}
+	// contador = 0;
+	// while (!is_it_order_yet(*stack_a, 1))
+	// {
+	// 	size = ft_lstsize(*stack_a);
+	// 	if (size <= 3)
+	// 		sort_5_cases(stack_a);
+	// 	else if (size >= 4 && size <= 5)
+	// 	{
+	// 		if (!bubble_sort_algorithm(stack_a, stack_b))
+	// 			return (0);
+	// 	}
+	// 	else
+	// 	{
+	// 		if (!chunks_alg(stack_a, stack_b))
+	// 			return (0);
+	// 	}
+	// }
+	// return (1);
 	return (1);
 }
 
