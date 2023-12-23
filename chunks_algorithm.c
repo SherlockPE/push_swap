@@ -6,11 +6,78 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/23 15:35:20 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:30:20 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_upper_number_position(int *array, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 1;
+	while (size > j)
+	{
+		if (array[i] > array[j])
+			j++;
+		else
+		{
+			i = j;
+			j = i + 1;
+		}
+	}
+	return (i + 1);
+}
+
+static int	rotate_operations_sb(t_list **stack_a, t_list **stack_b)
+{
+	int	size;
+	int	iterations;
+	int	position;
+	int	*int_array;
+
+	size = ft_lstsize(*stack_b);
+	int_array = convert_to_int_array(*stack_b);
+	if (!int_array)
+		return (0);
+	position = get_upper_number_position(int_array, ft_lstsize(*stack_b));
+	if (position <= size / 2)
+	{
+		iterations = position - 1;
+		while (iterations--)
+			rotate_b(stack_b);
+	}
+	else
+	{
+		iterations = size - position + 1;
+		while (iterations--)
+			reverse_rotate_b(stack_b);
+	}
+	push_a(stack_a, stack_b);
+	free(int_array);
+	return (1);
+}
+
+static int	move_elements_to_sa(t_list **stack_a, t_list **stack_b)
+{
+	int size_b;
+
+	size_b = ft_lstsize(*stack_b);
+	while (!is_it_order_yet(*stack_b, 2))
+	{
+		if (!rotate_operations_sb(stack_a, stack_b))
+			return (0);
+		size_b = ft_lstsize(*stack_b);
+	}
+	size_b = ft_lstsize(*stack_b);
+	while (size_b--)
+		push_a(stack_a, stack_b);
+	return (1);
+}
+
 
 int	chunks_alg(t_list **stack_a, t_list **stack_b)
 {
@@ -25,9 +92,11 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b)
 	if (!merge_sort(array, size))
 		return (0);
 	//----------------------------Chunks_algorithm-------------------------------
-	print_listas(*stack_a, *stack_b);
+	// print_listas(*stack_a, *stack_b);
 	move_elements_to_sb(stack_a, stack_b, size, array);
-	print_listas(*stack_a, *stack_b);
+	if (!move_elements_to_sa(stack_a, stack_b))// <----------------------------------- currently
+		return (0);
+	// print_listas(*stack_a, *stack_b);
 	//---------------------------------------------------------------------------
 	return (1);
 }
