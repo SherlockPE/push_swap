@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/23 14:02:45 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/23 15:00:38 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	found_position(t_list *stack_a, int *array, int separator, int *posi
 		actual = *(int *)(stack_a)->content;
 		printf("Valor actual: %d\n", actual);
 		printf("Position: %d\n\n", *position);
-		if (actual <= array[separator])
+		if (actual < array[separator])
 			return ;
 		(*position)++;
 		stack_a = (stack_a)->next;
@@ -82,6 +82,7 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b)
 	int	*array_1_D;
 	int	size;
 	int separator;
+	int i;
 
 	//Obtener el tamaño de la lista, crear un array de ints a partir de la lista y ordenar el array de ints
 	size = ft_lstsize(*stack_a);
@@ -94,26 +95,27 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b)
 	//print array of ints
 	print_array(array_1_D, size);
 
+	//---------------------------------------------------------------------------
 	//Chunks_algorithm
 	print_listas(*stack_a, *stack_b);
-	//---------------------------------------------------------------------------
-	// while (size)
-	// {
 	separator = size / 4;
-	int i;
+	int temp = separator;
 	while (size)
 	{
-		size = ft_lstsize(*stack_a);
-		i = separator + 1;
-		while (i--)
+		i = temp;
+		while (i-- && size)
+		{
 			chunks_function(stack_a, stack_b, array_1_D, ft_lstsize(*stack_a), separator);
-		separator += separator;
+			size = ft_lstsize(*stack_a);
+		}
+		separator += temp;
+		size = ft_lstsize(*stack_a);
 	}
 	
-	chunks_function(stack_a, stack_b, array_1_D, size, separator);
+	//chunks_function(stack_a, stack_b, array_1_D, size, separator);
 	// }
 	//---------------------------------------------------------------------------	
-	print_listas(*stack_a, *stack_b);
+	// print_listas(*stack_a, *stack_b);
 	return (1);
 }
 
