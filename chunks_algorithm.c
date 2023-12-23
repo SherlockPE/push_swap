@@ -6,65 +6,26 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/22 16:39:43 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/23 14:02:45 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Function locates the first coincidence of |actual| in the |array| 
-//(no more than |size| elements)
-//Returns 1 if it founds sommething
-//Returns 0 if it not found a coincidence
-// int	is_it_belongs(int actual, int *array, int size)
-// {
-// 	if (actual <= size)
-// 		return (1);
-// 	return (0);
-// }
-
-static void	found_position(t_list **stack_a, int *array, int separator, int *position)
+void	print_array(int	*array_1_D, int count)
 {
-	int	actual;
-	t_list *header;
-
-	header = *stack_a;
-	while (header)
+	printf("Array ordenado: \n");
+	for (int i = 0; i < count; i++)
 	{
-		actual = *(int *)(header)->content;
-		printf("Valor actual: %d\n", actual);
-		if (actual < array[separator])
-			return ;
-		(*position)++;
-		header = (header)->next;
+		printf("%d\n", array_1_D[i]);
 	}
 }
 
-static void	chunks_function(t_list **stack_a, t_list **stack_b, int *array_1_D, int size)
+static void	rotate_to_header(int position, t_list **stack_a, t_list **stack_b, int size)
 {
-	int separator;
-	int	position;
 	int	iterations;
-	separator = size / 4;
-
-	position = 0;
-
-	printf("Chunk actual: {");
-	int i = 0;
-	while (i < separator)
-	{
-		printf("%d", array_1_D[i]);
-		i++;
-	}
-	printf("}\n");
-	printf("Size: %d\n\n", size);
-
-	//Encontrar un número que pertenezca al chunk actual
-	found_position(stack_a, array_1_D, separator, &position);
-	printf("Position: %d\n", position);
-
-	//Rotar el numero encontrado hasta la cabecera
-	if (position <= size / 2)
+	
+	if (position < size / 2)
 	{
 		iterations = position;
 		while (iterations--)
@@ -72,51 +33,106 @@ static void	chunks_function(t_list **stack_a, t_list **stack_b, int *array_1_D, 
 	}
 	else
 	{
-		iterations = size - position + 1;
+		iterations = size - position;
 		while (iterations--)
 			reverse_rotate_a(stack_a);
-	}
-
-	//Function does pb
+	}	
 	push_b(stack_a, stack_b);
+	print_listas(*stack_a, *stack_b);
 }
+
+static void	found_position(t_list *stack_a, int *array, int separator, int *position)
+{
+	int	actual;
+
+	printf("Valor de separator (chunk): %d\n", separator);
+	while (stack_a)
+	{
+		actual = *(int *)(stack_a)->content;
+		printf("Valor actual: %d\n", actual);
+		printf("Position: %d\n\n", *position);
+		if (actual <= array[separator])
+			return ;
+		(*position)++;
+		stack_a = (stack_a)->next;
+	}
+}
+
+static void	chunks_function(t_list **stack_a, t_list **stack_b, int *array_1_D, int size, int separator)
+{
+	int	position;
+	position = 0;
+
+
+	//Encontrar un número que pertenezca al chunk actual
+	printf("\nIniciando busqueda: \n");
+	found_position(*stack_a, array_1_D, separator, &position);
+	printf("\nPosition: %d\n", position);
+
+	//Rotar el numero encontrado hasta la cabecera y moverlo al stack B
+	printf("Rotando el número y moviendolo al stack_b\n");
+	rotate_to_header(position, stack_a, stack_b, size);
+
+}
+
+
 
 int	chunks_alg(t_list **stack_a, t_list **stack_b)
 {
 	int	*array_1_D;
 	int	size;
+	int separator;
 
-	//Obtener el tamaño de la lista
+	//Obtener el tamaño de la lista, crear un array de ints a partir de la lista y ordenar el array de ints
 	size = ft_lstsize(*stack_a);
-
-	//Guardar la lista en un array de ints
 	array_1_D = convert_to_int_array(*stack_a);
 	if (!array_1_D)
 		return (0);
-
-	//Ordenar el array de ints
 	if (!merge_sort(array_1_D, size))
 		return (0);
 
-	printf("Lista ordenada: ");
-	int i = 0; 
-	while (i < size)
-	{
-		printf("%d, ", array_1_D[i]);
-		i++;
-	}
-	printf("\n");
+	//print array of ints
+	print_array(array_1_D, size);
+
 	//Chunks_algorithm
 	print_listas(*stack_a, *stack_b);
-
-	chunks_function(stack_a, stack_b, array_1_D, size);
-
+	//---------------------------------------------------------------------------
+	// while (size)
+	// {
+	separator = size / 4;
+	int i;
+	while (size)
+	{
+		size = ft_lstsize(*stack_a);
+		i = separator + 1;
+		while (i--)
+			chunks_function(stack_a, stack_b, array_1_D, ft_lstsize(*stack_a), separator);
+		separator += separator;
+	}
+	
+	chunks_function(stack_a, stack_b, array_1_D, size, separator);
+	// }
+	//---------------------------------------------------------------------------	
 	print_listas(*stack_a, *stack_b);
-	// Imprimit array
-	// array_2_D = separate_in_chunks(array_1_D, size, separator);
-	// move_elements(stack_a, stack_b, array_2_D);
 	return (1);
 }
+
+
+
+
+
+
+
+
+
+
+	// printf("Lista ordenada: ");
+	// int i = 0; 
+	// while (i < size)
+	// {
+	// 	printf("%d, ", array_1_D[i]);
+	// 	i++;
+	// }
 
 // int    main(void)
 // {
