@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/22 16:38:07 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/24 13:58:36 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,8 @@ int	main(int argc, char **argv)
 			return (0);
 		if (!stack_a)
 			return (ft_perror("Error\n"));
-		// print_listas(stack_a, stack_b);
-		// enter_parameter(&stack_a, &stack_b);
 		if (!sort_list(&stack_a, &stack_b))
 			return (0);
-		// print_listas(stack_a, stack_b);
 	}
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);

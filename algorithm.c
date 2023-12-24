@@ -6,7 +6,7 @@
 /*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/24 10:11:25 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/24 15:34:02 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	sort_list(t_list **stack_a, t_list **stack_b)
 		}
 		else if (size <= 100)
 		{
-			if (!chunks_alg(stack_a, stack_b, 10))
+			if (!chunks_alg(stack_a, stack_b, 6))//<----- 6 es el más optimo
 				return (0);
 		}
 		else
