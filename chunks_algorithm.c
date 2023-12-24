@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunks_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/23 19:30:20 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/24 10:08:40 by fabriciolop      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ static int	move_elements_to_sa(t_list **stack_a, t_list **stack_b)
 }
 
 
-int	chunks_alg(t_list **stack_a, t_list **stack_b)
+int	chunks_alg(t_list **stack_a, t_list **stack_b, int chunk_size)
 {
 	int	*array;
 	int	size;
-
+	int	separator;
 	//Obtener el tamaño de la lista, crear un array de ints a partir de ella y ordenar el array de ints
 	size = ft_lstsize(*stack_a);
 	array = convert_to_int_array(*stack_a);
@@ -93,7 +93,8 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b)
 		return (0);
 	//----------------------------Chunks_algorithm-------------------------------
 	// print_listas(*stack_a, *stack_b);
-	move_elements_to_sb(stack_a, stack_b, size, array);
+	separator =  size / chunk_size;
+	move_elements_to_sb(stack_a, stack_b, separator, array);
 	if (!move_elements_to_sa(stack_a, stack_b))// <----------------------------------- currently
 		return (0);
 	// print_listas(*stack_a, *stack_b);
