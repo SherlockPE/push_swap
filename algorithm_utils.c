@@ -6,14 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/22 13:11:44 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/27 16:32:40 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //Function gets the position of the lowest element in the |array|
-//not more than |size| elementes
+//not more than |size| elements
 int	get_lower_number_position(int *array, int size)
 {
 	int	i;
@@ -34,6 +34,7 @@ int	get_lower_number_position(int *array, int size)
 	return (i + 1);
 }
 
+//Function convert a list into a array of pointers
 int	*convert_to_int_array(t_list *stack)
 {
 	int	i;
@@ -51,6 +52,7 @@ int	*convert_to_int_array(t_list *stack)
 	return (int_array);
 }
 
+//Function sort 3 numbers (needed to be in a bucle)
 void	sort_5_cases(t_list **stack_a)
 {
 	int	a;
