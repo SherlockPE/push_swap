@@ -6,14 +6,15 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 15:28:01 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/27 16:34:05 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:06:41 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Rotar el numero encontrado hasta la cabecera y moverlo al stack B
-static void	rotate_to_header(int position, t_list **stack_a, t_list **stack_b,	int size)
+static void	rotate_to_header(int position, t_list **stack_a, t_list **stack_b,
+		int size)
 {
 	int	iterations;
 
@@ -38,7 +39,6 @@ static void	found_position(t_list *stack_a, int *array, int separator,
 {
 	int	actual;
 
-	// printf("Valor de separator (chunk): %d\n", separator);
 	while (stack_a)
 	{
 		actual = *(int *)(stack_a)->content;
@@ -49,7 +49,8 @@ static void	found_position(t_list *stack_a, int *array, int separator,
 	}
 }
 
-static void	chunks_mv_pb(t_list **stack_a, t_list **stack_b, int *array, int separator)
+static void	chunks_mv_pb(t_list **stack_a, t_list **stack_b, int *array,
+		int separator)
 {
 	int	position;
 	int	size;
@@ -58,13 +59,13 @@ static void	chunks_mv_pb(t_list **stack_a, t_list **stack_b, int *array, int sep
 	position = 0;
 	found_position(*stack_a, array, separator, &position);
 	rotate_to_header(position, stack_a, stack_b, size);
-	//rotatate_after_push(stack_b, array[separator]);
 }
 
 // Function separate the elements in chunks and it pushes to stack b
-void	move_elements_to_sb(t_list **stack_a, t_list **stack_b, int separator, int *array)
+void	move_elements_to_sb(t_list **stack_a, t_list **stack_b, int separator,
+		int *array)
 {
-	int i;
+	int	i;
 	int	temp;
 	int	size;
 

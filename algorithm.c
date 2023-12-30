@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:24:47 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/27 16:34:19 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:04:28 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,9 @@ int	sort_list(t_list **stack_a, t_list **stack_b)
 				return (0);
 		}
 		else if (size <= 100)
-		{
-			if (!chunks_alg(stack_a, stack_b, 6))//<----- 6 es el más optimo
-				return (0);
-		}
+			return (chunks_alg(stack_a, stack_b, 6));
 		else
-		{
-			if (!chunks_alg(stack_a, stack_b, 20))
-				return (0);
-		}
+			return (chunks_alg(stack_a, stack_b, 20));
 	}
 	return (1);
 }

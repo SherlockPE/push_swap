@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/21 18:44:46 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:10:23 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	ft_perror(char *message)
 	return (0);
 }
 
-int	clear_lista(t_list	**lista)
+int	clear_lista(t_list **lista)
 {
 	ft_lstclear(lista, free);
 	ft_perror("Error\n");
 	return (0);
 }
 
-//This function is a dependency of the function "create_list"
+// This function is a dependency of the function "create_list"
 static int	add_values(t_list **new_list, char **array)
 {
 	int		i;
@@ -64,7 +64,17 @@ int	create_list(char **list_values, t_list **new_list)
 	return (repeat_numbers(*new_list));
 }
 
-void	print_listas(t_list *header_a, t_list *header_b)
+int	error_content_size(t_list **stack)
+{
+	int	size;
+
+	size = ft_lstsize(*stack);
+	if (size <= 1)
+		return (0);
+	return (1);
+}
+
+/* void	print_listas(t_list *header_a, t_list *header_b)
 {
 	printf("---------------------------------\n");
 	printf("Stack a		|		Stack b\n");
@@ -89,17 +99,7 @@ void	print_listas(t_list *header_a, t_list *header_b)
 		}
 	}
 	printf("---------------------------------\n");
-}
-
-int	error_content_size(t_list **stack)
-{
-	int	size;
-
-	size = ft_lstsize(*stack);
-	if (size <= 1)
-		return (0);
-	return (1);
-}
+} */
 
 // Falta el 2.147.483.647 (número mayor a int)
 

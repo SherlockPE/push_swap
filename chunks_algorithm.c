@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunks_algorithm.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/24 10:08:40 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/30 16:05:48 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	rotate_operations_sb(t_list **stack_a, t_list **stack_b)
 
 static int	move_elements_to_sa(t_list **stack_a, t_list **stack_b)
 {
-	int size_b;
+	int	size_b;
 
 	size_b = ft_lstsize(*stack_b);
 	while (!is_it_order_yet(*stack_b, 2))
@@ -78,27 +78,22 @@ static int	move_elements_to_sa(t_list **stack_a, t_list **stack_b)
 	return (1);
 }
 
-
 int	chunks_alg(t_list **stack_a, t_list **stack_b, int chunk_size)
 {
 	int	*array;
 	int	size;
 	int	separator;
-	//Obtener el tamaño de la lista, crear un array de ints a partir de ella y ordenar el array de ints
+
 	size = ft_lstsize(*stack_a);
 	array = convert_to_int_array(*stack_a);
 	if (!array)
 		return (0);
 	if (!merge_sort(array, size))
 		return (0);
-	//----------------------------Chunks_algorithm-------------------------------
-	// print_listas(*stack_a, *stack_b);
-	separator =  size / chunk_size;
+	separator = size / chunk_size;
 	move_elements_to_sb(stack_a, stack_b, separator, array);
-	if (!move_elements_to_sa(stack_a, stack_b))// <----------------------------------- currently
+	if (!move_elements_to_sa(stack_a, stack_b))
 		return (0);
-	// print_listas(*stack_a, *stack_b);
-	//---------------------------------------------------------------------------
 	return (1);
 }
 

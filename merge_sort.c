@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 13:13:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/22 14:47:45 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:08:03 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static void	merge_split(int *original_array, int *copy_array, int inicio,
 
 int	merge_sort(int *original_array, int size)
 {
-	int i;
-	int *copy_array;
+	int	i;
+	int	*copy_array;
 
 	copy_array = ft_calloc(size, sizeof(int));
 	if (!copy_array)

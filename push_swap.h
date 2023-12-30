@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fabriciolopez <fabriciolopez@student.42    +#+  +:+       +#+        */
+/*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:03:18 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/24 10:05:14 by fabriciolop      ###   ########.fr       */
+/*   Updated: 2023/12/30 16:09:14 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ int		sort_list(t_list **stack_a, t_list **stack_b);
 int		bubble_sort_algorithm(t_list **stack_a, t_list **stack_b);
 
 // Chunks algorithm
-int     chunks_alg(t_list **stack_a, t_list **stack_b, int chunk_size);
-void	move_elements_to_sb(t_list **stack_a, t_list **stack_b, int separator, int *array);
-//void	move_elements_to_sa(t_list **stack_a, t_list **stack_b, int size, int *array);
+int		chunks_alg(t_list **stack_a, t_list **stack_b, int chunk_size);
+void	move_elements_to_sb(t_list **stack_a, t_list **stack_b, int separator,
+			int *array);
+// void	move_elements_to_sa(t_list **stack_a, t_list **stack_b, int size,
+		//int *array);
 int		merge_sort(int *original_array, int size);
 
 // Algorithm utils

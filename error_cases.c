@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:08:39 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/21 19:23:54 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:06:59 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,10 @@ int	repeat_numbers(t_list *new_list)
 	{
 		actual_content = (int *)new_list->content;
 		next_elements = new_list->next;
-
-
 		while (next_elements)
 		{
 			if (*actual_content == *(int *)next_elements->content)
-				return(ft_perror("Error\n"));
+				return (ft_perror("Error\n"));
 			next_elements = next_elements->next;
 		}
 		new_list = new_list->next;
@@ -46,7 +44,8 @@ static int	is_it_int(char **array)
 		j = 0;
 		while (array[i][j])
 		{
-			if (!ft_isdigit(array[i][j - 1]) && (array[i][j] == '+' || array[i][j] == '-'))
+			if (!ft_isdigit(array[i][j - 1]) && (array[i][j] == '+'
+					|| array[i][j] == '-'))
 				j++;
 			if (!ft_isdigit(array[i][j]))
 				return (0);
