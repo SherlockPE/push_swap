@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 12:01:02 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/30 16:10:23 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:16:29 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ static int	add_values(t_list **new_list, char **array)
 			return (clear_lista(new_list));
 		*content = ft_atoi(array[i]);
 		if (*content > INT_MAX || *content < INT_MIN)
+		{
+			free(content);
 			return (clear_lista(new_list));
+		}
 		ft_lstadd_back(new_list, ft_lstnew(content));
 		i++;
 	}
@@ -58,7 +61,11 @@ int	create_list(char **list_values, t_list **new_list)
 	{
 		box = ft_split(list_values[i], ' ');
 		if (!add_values(new_list, box))
+		{
+			free_split(box);
 			return (0);
+		}
+		free_split(box);
 		i++;
 	}
 	return (repeat_numbers(*new_list));

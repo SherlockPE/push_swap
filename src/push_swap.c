@@ -6,11 +6,16 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/30 16:08:40 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:42:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// void ft_leaks(void)
+// {
+// 	system("leaks push_swap");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -18,17 +23,15 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	stack_b = NULL;
+	if (argc == 1)
+		return (0);
 	if (!check_errors(argc, argv))
 		return (ft_perror("Error\n"));
-	else
-	{
-		if (!create_list(argv, &stack_a))
-			return (0);
-		if (!stack_a)
-			return (ft_perror("Error\n"));
-		if (!sort_list(&stack_a, &stack_b))
-			return (0);
-	}
+	if (!create_list(argv, &stack_a))
+		return (0);
+	if (!stack_a)
+		return (ft_perror("Error\n"));
+	sort_list(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);

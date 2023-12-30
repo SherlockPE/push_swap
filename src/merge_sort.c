@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 13:13:42 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/30 16:08:03 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:41:02 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int	merge_sort(int *original_array, int size)
 	while (i++ < size - 1)
 		copy_array[i] = original_array[i];
 	merge_split(original_array, copy_array, 0, size);
+	free(copy_array);
 	return (1);
 }

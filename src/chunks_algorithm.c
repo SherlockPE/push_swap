@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 09:37:16 by fabriciolop       #+#    #+#             */
-/*   Updated: 2023/12/30 16:05:48 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:39:16 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,18 @@ int	chunks_alg(t_list **stack_a, t_list **stack_b, int chunk_size)
 	if (!array)
 		return (0);
 	if (!merge_sort(array, size))
+	{
+		free(array);
 		return (0);
+	}
 	separator = size / chunk_size;
 	move_elements_to_sb(stack_a, stack_b, separator, array);
 	if (!move_elements_to_sa(stack_a, stack_b))
+	{
+		free(array);
 		return (0);
+	}
+	free(array);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 13:08:07 by flopez-r          #+#    #+#              #
-#    Updated: 2023/11/23 17:33:37 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/12/30 16:51:54 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,14 +21,20 @@ SRC =	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_strmapi.c ft_strtrim.c\
 		ft_strrchr.c ft_tolower.c ft_toupper.c ft_strjoin.c ft_substr.c \
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c\
+		printf/ft_pass_hex.c \
+		printf/ft_print_memory.c\
+		printf/ft_printf.c\
+		printf/ft_putchar.c\
+		printf/ft_putnbr.c\
+		printf/ft_putstr.c
 # BNS_SRCS =	ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
 # 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJ = $(SRC:.c=.o)
 # BNS_OBJS =	$(BNS_SRCS:.c=.o)
 
-NAME = ../libft.a
+NAME = libft.a
 
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror

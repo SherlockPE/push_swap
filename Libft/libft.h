@@ -6,13 +6,14 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 13:07:06 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/12 16:28:24 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 16:25:08 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "printf/ft_printf.h"
 # include <stddef.h>
 # include <stdlib.h>
 

@@ -6,16 +6,25 @@
 #    By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/23 16:58:57 by flopez-r          #+#    #+#              #
-#    Updated: 2023/12/30 16:11:56 by flopez-r         ###   ########.fr        #
+#    Updated: 2023/12/30 16:52:06 by flopez-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-SRC = push_swap_utils.c push_swap.c \
-		operations_swap.c operations_push.c operations_rotate.c \
-		operations_reverse_rotate.c push_swap_utils.c\
-		algorithm.c algorithm_utils.c error_cases.c bubble_sort.c \
-		chunks_algorithm.c merge_sort.c chunks_mv_pb.c
+SRC = src/push_swap_utils.c \
+	src/push_swap.c \
+	src/operations_swap.c \
+	src/operations_push.c \
+	src/operations_rotate.c \
+	src/operations_reverse_rotate.c \
+	src/push_swap_utils.c \
+	src/algorithm.c \
+	src/algorithm_utils.c \
+	src/error_cases.c \
+	src/bubble_sort.c \
+	src/chunks_algorithm.c \
+	src/merge_sort.c \
+	src/chunks_mv_pb.c
 OBJ = $(SRC:.c=.o)
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror
@@ -24,7 +33,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(MAKE) -C libft
-	$(CC) $(CFLAGS) $^ -L. -lft -o $@
+	$(CC) $(CFLAGS) $^ -L./Libft -lft -o $@
 
 
 clean:

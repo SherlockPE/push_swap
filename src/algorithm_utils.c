@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 20:11:40 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/27 16:32:40 by flopez-r         ###   ########.fr       */
+/*   Updated: 2023/12/30 17:35:58 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	*convert_to_int_array(t_list *stack)
 	int	i;
 	int	*int_array;
 
-	int_array = (int *)calloc(ft_lstsize(stack), sizeof(int *));
+	int_array = (int *)calloc(ft_lstsize(stack), sizeof(int));
 	if (!int_array)
 		return (0);
 	i = 0;
