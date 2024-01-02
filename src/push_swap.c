@@ -6,7 +6,7 @@
 /*   By: flopez-r <flopez-r@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 12:28:35 by flopez-r          #+#    #+#             */
-/*   Updated: 2023/12/30 17:42:16 by flopez-r         ###   ########.fr       */
+/*   Updated: 2024/01/02 11:10:40 by flopez-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 // {
 // 	system("leaks push_swap");
 // }
+// 	// atexit(ft_leaks);
 
 int	main(int argc, char **argv)
 {
